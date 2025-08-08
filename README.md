@@ -5,7 +5,7 @@ This project helps you build Make.com Apps using AI and your own API specificati
 ## How to Use
 
 1. **Download Claude Code**  
-   Download Claude Code (Anthropic's Claude AI) to use as your AI assistant.
+   Download Claude Code (Anthropic's Claude AI) to use as your AI assistant. https://www.anthropic.com/claude-code
 
 2. **Prepare Your API Spec**  
    Place your API specification and any relevant files in the `knowledgebase` folder.
