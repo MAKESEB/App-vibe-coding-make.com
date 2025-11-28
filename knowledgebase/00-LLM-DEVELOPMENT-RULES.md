@@ -107,6 +107,29 @@ These issues affect ALL Make.com app development and have established workaround
 
 ## 📦 Module Configuration Rules
 
+## 📝 Naming Conventions
+
+### Module and Folder Names
+```
+❌ DON'T USE: Dashes in names
+   "name": "create-user"
+   "name": "make-an-api-call"
+   folders: create-user/, verify-user/
+
+✅ DO USE: camelCase for all names
+   "name": "createUser"
+   "name": "makeAPICall"
+   folders: createUser/, verifyUser/
+
+Exception: Universal modules must be named "makeAPICall" (not "makeAnApiCall")
+```
+
+### App Icons
+```
+❌ DON'T USE: Small icons (64x64)
+✅ DO USE: Minimum 512x512 PNG for icon.png in assets folder
+```
+
 ### API Endpoints
 ```json
 {
