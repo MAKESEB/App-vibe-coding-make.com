@@ -1,0 +1,18 @@
+# App folders (specific implementations for clients)
+2ploon-app/
+finapi-access-gcbjdi/
+
+# App documentation files
+2PLOON-APP-COMPLETE.md
+2PLOON-APP-DOCS.md
+
+# System files
+.DS_Store
+.claude/
+
+# Node modules (if any)
+node_modules/
+
+# Environment files
+.env
+.env.local
