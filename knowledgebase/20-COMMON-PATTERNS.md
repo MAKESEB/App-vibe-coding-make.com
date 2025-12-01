@@ -826,6 +826,64 @@ function validateEmail(email) {
 ]
 ```
 
+## Universal Module Patterns
+
+### ⚠️ CRITICAL: "Make an API Call" Module Must Repeat Root URL
+
+**Best Practice:** Universal "Make an API Call" modules should concatenate the base URL with the user-provided endpoint path.
+
+### Incorrect Pattern (Don't Use)
+```json
+{
+    \"url\": \"{{parameters.url}}\",
+    \"method\": \"{{parameters.method}}\"
+}
+```
+
+**Problem:** Users must enter full URLs, risking errors and wrong environments.
+
+### Correct Pattern (Recommended)
+```json
+{
+    \"url\": \"https://api.example.com/v1{{parameters.url}}\",
+    \"method\": \"{{parameters.method}}\",
+    \"headers\": {
+        \"{{...}}\": \"{{toCollection(parameters.headers, 'key', 'value')}}\"
+    },
+    \"qs\": {
+        \"{{...}}\": \"{{toCollection(parameters.qs, 'key', 'value')}}\"
+    },
+    \"body\": \"{{parameters.body}}\",
+    \"type\": \"{{parameters.type}}\",
+    \"response\": {
+        \"output\": {
+            \"body\": \"{{body}}\",
+            \"headers\": \"{{headers}}\",
+            \"statusCode\": \"{{statusCode}}\"
+        }
+    }
+}
+```
+
+### Dynamic Base URL Pattern
+```json
+{
+    \"url\": \"https://{{if(connection.environment = 'production', 'api', 'sandbox')}}.example.com/v1{{parameters.url}}\",
+    \"method\": \"{{parameters.method}}\"
+}
+```
+
+**Benefits:**
+- ✅ Users only enter endpoint paths: `/users`, `/accounts`, etc.
+- ✅ Automatic environment switching (sandbox/production)
+- ✅ Prevents wrong base URL errors
+- ✅ Consistent with base.imljson configuration
+- ✅ Better user experience
+
+**Example:**
+- User input: `/accounts`
+- Actual call: `https://api.example.com/v1/accounts`
+
 ## Logging and Security Patterns
 
 ### Comprehensive Logging Sanitization

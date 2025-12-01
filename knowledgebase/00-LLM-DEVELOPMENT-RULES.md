@@ -107,6 +107,45 @@ These issues affect ALL Make.com app development and have established workaround
 
 ## 📦 Module Configuration Rules
 
+### Universal "Make an API Call" Module (CRITICAL)
+
+**Best Practice:** The universal "Make an API Call" module must repeat the root URL in its configuration.
+
+**❌ DON'T: Use only the parameter URL**
+```json
+{
+    "url": "{{parameters.url}}",
+    "method": "{{parameters.method}}"
+}
+```
+
+**✅ DO: Concatenate base URL with parameter URL**
+```json
+{
+    "url": "https://api.example.com/v1{{parameters.url}}",
+    "method": "{{parameters.method}}"
+}
+```
+
+**For dynamic base URLs:**
+```json
+{
+    "url": "https://{{if(connection.environment = 'production', 'api', 'sandbox')}}.example.com/v1{{parameters.url}}",
+    "method": "{{parameters.method}}"
+}
+```
+
+**Why this matters:**
+- Users only need to provide endpoint paths like `/users` or `/accounts`
+- Prevents users from accidentally using wrong base URLs
+- Ensures environment consistency (sandbox vs production)
+- Matches the pattern used in base.imljson
+- Better user experience - simpler input required
+
+**Example user input:**
+- User enters: `/accounts`
+- Actual API call: `https://api.example.com/v1/accounts`
+
 ## 📝 Naming Conventions
 
 ### Module and Folder Names
@@ -291,6 +330,7 @@ Exception: Universal modules must be named "makeAPICall" (not "makeAnApiCall")
 8. **Using generic connection labels like "API Key" instead of "OpenAI API Key"**
 9. **Hardcoding error messages for each status code** - Use dynamic error handling instead
 10. **Wrapping module output in unnecessary objects** - Use direct output `"output": "{{body}}"` unless transformation is needed
+11. **Not repeating root URL in "Make an API Call" modules** - Always concatenate base URL with parameter URL
 
 ## ✅ Validation Checklist
 
