@@ -158,6 +158,77 @@ Exception: Universal modules must be named "makeAPICall" (not "makeAnApiCall")
 }
 ```
 
+## 🎯 Critical Best Practices
+
+### 1. Dynamic Error Handling (CRITICAL)
+
+**❌ DON'T: Hardcode error messages for each status code**
+```json
+{
+    "response": {
+        "error": {
+            "400": { "message": "[400] Bad Request: Invalid input data" },
+            "401": { "message": "[401] Authentication failed. Please check your API key." },
+            "403": { "message": "[403] Access forbidden. Check your permissions." },
+            "404": { "message": "[404] Endpoint not found" },
+            "500": { "message": "[500] Internal server error. Please try again later." },
+            "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
+        }
+    }
+}
+```
+
+**✅ DO: Use dynamic error handling that returns actual API errors**
+```json
+{
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
+        }
+    }
+}
+```
+
+**Why this matters:**
+- Returns actual error messages from the API
+- More accurate and helpful error information for users
+- Easier to maintain - no hardcoded messages to update
+- Adapts automatically to API changes
+
+### 2. Direct Module Output (CRITICAL)
+
+**❌ DON'T: Wrap output in unnecessary objects**
+```json
+{
+    "response": {
+        "output": {
+            "response": "{{body}}"
+        }
+    }
+}
+```
+
+**✅ DO: Output the body directly without wrappers**
+```json
+{
+    "response": {
+        "output": "{{body}}"
+    }
+}
+```
+
+**Why this matters:**
+- Cleaner data structure in Make.com workflows
+- Easier for users to access data
+- Less nesting means simpler field mappings
+- Preserves the original API response structure
+
+**Exception:** Only add wrapper objects when you need to:
+- Transform or rename specific fields
+- Combine data from multiple sources
+- Add computed values
+- Restructure inconsistent API responses
+
 ## 🎯 Service-Specific Examples
 
 ### OpenAI API
@@ -218,6 +289,8 @@ Exception: Universal modules must be named "makeAPICall" (not "makeAnApiCall")
 6. **Not adjusting response paths to match actual API structure**
 7. **Forgetting to update User-Agent strings**
 8. **Using generic connection labels like "API Key" instead of "OpenAI API Key"**
+9. **Hardcoding error messages for each status code** - Use dynamic error handling instead
+10. **Wrapping module output in unnecessary objects** - Use direct output `"output": "{{body}}"` unless transformation is needed
 
 ## ✅ Validation Checklist
 

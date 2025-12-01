@@ -395,15 +395,45 @@ The `base.imljson` file contains global configuration that applies to all API ca
 ## Common Patterns and Best Practices
 
 ### 1. Always Include Error Handling
+
+**⚠️ CRITICAL: Use Dynamic Error Handling**
+
+Hardcoding error messages for specific status codes is not ideal. Instead, use dynamic error extraction that returns the actual error code and message from the API response.
+
 ```json
+// ❌ DON'T: Hardcoded error messages for each status code
 {
     "response": {
         "error": {
-            "message": "[{{statusCode}}] {{body.error.message || body.message || 'Unknown error'}}"
+            "400": {
+                "message": "[400] Bad Request: Invalid input data"
+            },
+            "401": {
+                "message": "[401] Authentication failed. Please check your API key."
+            },
+            "500": {
+                "message": "[500] Internal server error. Please try again later."
+            },
+            "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
+        }
+    }
+}
+
+// ✅ DO: Dynamic error handling that uses actual API responses
+{
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
         }
     }
 }
 ```
+
+**Why Dynamic is Better:**
+- Returns the actual error message from the API
+- Provides more accurate and detailed error information
+- Easier to maintain - no need to update hardcoded messages
+- Adapts to API changes automatically
 
 ### 2. Sanitize Sensitive Data
 ```json
