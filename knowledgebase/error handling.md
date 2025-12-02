@@ -1,30 +1,51 @@
-## Error Handling-01
+## Error Handling-01: Dynamic Error Handling (RECOMMENDED)
 
 **Description**
-Establishes a global error handling strategy in the `base` object and allows for overriding it at the module level for specific endpoints. The `response.error.message` field constructs a user-friendly error from the API response body, which is shown to the user when a scenario fails.
+Establishes a global error handling strategy in the `base` object that dynamically extracts error messages from the API response. This is the preferred approach as it returns actual API error messages instead of hardcoded text.
 
-**⚠️ Critical Warnings**
-- If an API returns different error structures for different endpoints, module-level overrides are necessary to prevent parsing errors.
-- An unhandled or misconfigured error will cause the scenario to stop with a generic message, making it difficult for the user to debug.
+**⚠️ CRITICAL Best Practice**
+- **DO NOT hardcode error messages for each status code** (400, 401, 403, etc.)
+- **DO use dynamic error extraction** that returns the actual error from the API
+- This provides more accurate, helpful error information to users
+- Easier to maintain and adapts automatically to API changes
 
-**Example**
+**Example (Recommended Approach)**
 ```json
 {
   "base": {
     "baseUrl": "https://api.example.com",
     "response": {
       "error": {
-        "message": "[{{statusCode}}] {{body.description}} (error code: {{body.code}}) {{body}}"
+        "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
       }
     }
-  },
+  }
+}
+```
+
+**Why Dynamic is Better:**
+- ✅ Returns actual API error messages
+- ✅ More accurate and detailed information
+- ✅ No hardcoded messages to maintain
+- ✅ Automatically adapts to API changes
+- ✅ Users get the real error from the API
+
+**When to Use Module-Level Overrides:**
+Only override error handling at the module level when:
+- A specific endpoint returns errors in a completely different format
+- You need to add custom error processing logic
+- The endpoint requires special error type handling
+
+**Example (Module-Level Override)**
+```json
+{
   "_modules": {
     "someAction": {
       "api": {
         "url": "/action/specific",
         "response": {
           "error": {
-            "message": "Failed to perform action. API responded with [{{statusCode}}] - {{body.message}}"
+            "message": "[{{statusCode}}] {{body.error.details || body.message}}"
           }
         }
       }
@@ -33,21 +54,31 @@ Establishes a global error handling strategy in the `base` object and allows for
 }
 ```
 
+**⚠️ Critical Warnings**
+- If an API returns different error structures for different endpoints, module-level overrides are necessary to prevent parsing errors.
+- An unhandled or misconfigured error will cause the scenario to stop with a generic message, making it difficult for the user to debug.
+- Always test error handling with actual API errors to ensure the correct path is used.
+
 **Implementation Steps**
-1. In the `base` object, add a `response.error` block to define a default error message format for all modules.
-2. Use placeholders like `{{statusCode}}` and `{{body.someKey}}` to build a descriptive message.
-3. For any module that handles an endpoint with a unique error structure, add a `response.error` block inside that module's `api` definition to override the base configuration.
+1. In the `base` object (base.imljson), add a `response.error` block with dynamic error extraction
+2. Use `{{statusCode}}` to include the HTTP status code
+3. Use `{{body.error || body.message || 'Unknown error'}}` to extract the actual API error message
+4. Adjust the path based on your API's actual error structure (test with real errors!)
+5. Only add module-level overrides if a specific endpoint uses a different error format
 
 **Real-World Examples**
-- `Global Error: `"message": "[{{statusCode}}] {{body.description}} (error code: {{body.code}}) {{body}}"``
-- `Module-Specific Error: `"message": "[{{statusCode}}] {{body.message}} (error code: {{body.code}}) {{body.description}}"``
+- `GitHub API: "message": "[{{statusCode}}] {{body.message}}"`
+- `Stripe API: "message": "[{{statusCode}}] {{body.error.message}}"`
+- `Generic REST: "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"`
 
 **Platform Notes**
-- Make.com automatically triggers this error handling logic for any non-2xx HTTP status code response.
-- The `{{body}}` placeholder is a useful debugging tool during development, as it prints the entire raw response body in the error message.
+- Make.com automatically triggers error handling for any non-2xx HTTP status code
+- Test your error path by triggering actual API errors (invalid auth, bad parameters, etc.)
+- The `{{body}}` placeholder can be temporarily added for debugging during development
+- Remove `{{body}}` in production to avoid exposing sensitive information
 
 **Source files**
-base.response.error, _modules.sendSms.api.response.error
+base.imljson (base.response.error), module api.imljson (response.error for overrides)
 
 ---
 

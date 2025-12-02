@@ -107,6 +107,45 @@ These issues affect ALL Make.com app development and have established workaround
 
 ## 📦 Module Configuration Rules
 
+### Universal "Make an API Call" Module (CRITICAL)
+
+**Best Practice:** The universal "Make an API Call" module must repeat the root URL in its configuration.
+
+**❌ DON'T: Use only the parameter URL**
+```json
+{
+    "url": "{{parameters.url}}",
+    "method": "{{parameters.method}}"
+}
+```
+
+**✅ DO: Concatenate base URL with parameter URL**
+```json
+{
+    "url": "https://api.example.com/v1{{parameters.url}}",
+    "method": "{{parameters.method}}"
+}
+```
+
+**For dynamic base URLs:**
+```json
+{
+    "url": "https://{{if(connection.environment = 'production', 'api', 'sandbox')}}.example.com/v1{{parameters.url}}",
+    "method": "{{parameters.method}}"
+}
+```
+
+**Why this matters:**
+- Users only need to provide endpoint paths like `/users` or `/accounts`
+- Prevents users from accidentally using wrong base URLs
+- Ensures environment consistency (sandbox vs production)
+- Matches the pattern used in base.imljson
+- Better user experience - simpler input required
+
+**Example user input:**
+- User enters: `/accounts`
+- Actual API call: `https://api.example.com/v1/accounts`
+
 ## 📝 Naming Conventions
 
 ### Module and Folder Names
@@ -157,6 +196,77 @@ Exception: Universal modules must be named "makeAPICall" (not "makeAnApiCall")
     "output": "{{body.choices[0].message.content}}"     // OpenAI (extract message content)
 }
 ```
+
+## 🎯 Critical Best Practices
+
+### 1. Dynamic Error Handling (CRITICAL)
+
+**❌ DON'T: Hardcode error messages for each status code**
+```json
+{
+    "response": {
+        "error": {
+            "400": { "message": "[400] Bad Request: Invalid input data" },
+            "401": { "message": "[401] Authentication failed. Please check your API key." },
+            "403": { "message": "[403] Access forbidden. Check your permissions." },
+            "404": { "message": "[404] Endpoint not found" },
+            "500": { "message": "[500] Internal server error. Please try again later." },
+            "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
+        }
+    }
+}
+```
+
+**✅ DO: Use dynamic error handling that returns actual API errors**
+```json
+{
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}"
+        }
+    }
+}
+```
+
+**Why this matters:**
+- Returns actual error messages from the API
+- More accurate and helpful error information for users
+- Easier to maintain - no hardcoded messages to update
+- Adapts automatically to API changes
+
+### 2. Direct Module Output (CRITICAL)
+
+**❌ DON'T: Wrap output in unnecessary objects**
+```json
+{
+    "response": {
+        "output": {
+            "response": "{{body}}"
+        }
+    }
+}
+```
+
+**✅ DO: Output the body directly without wrappers**
+```json
+{
+    "response": {
+        "output": "{{body}}"
+    }
+}
+```
+
+**Why this matters:**
+- Cleaner data structure in Make.com workflows
+- Easier for users to access data
+- Less nesting means simpler field mappings
+- Preserves the original API response structure
+
+**Exception:** Only add wrapper objects when you need to:
+- Transform or rename specific fields
+- Combine data from multiple sources
+- Add computed values
+- Restructure inconsistent API responses
 
 ## 🎯 Service-Specific Examples
 
@@ -218,6 +328,9 @@ Exception: Universal modules must be named "makeAPICall" (not "makeAnApiCall")
 6. **Not adjusting response paths to match actual API structure**
 7. **Forgetting to update User-Agent strings**
 8. **Using generic connection labels like "API Key" instead of "OpenAI API Key"**
+9. **Hardcoding error messages for each status code** - Use dynamic error handling instead
+10. **Wrapping module output in unnecessary objects** - Use direct output `"output": "{{body}}"` unless transformation is needed
+11. **Not repeating root URL in "Make an API Call" modules** - Always concatenate base URL with parameter URL
 
 ## ✅ Validation Checklist
 

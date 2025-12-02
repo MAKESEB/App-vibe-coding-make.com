@@ -49,7 +49,28 @@ This document contains frequently used patterns, code snippets, and configuratio
 
 ## Error Handling Patterns
 
-### Comprehensive Error Handling
+### ⚠️ CRITICAL: Prefer Dynamic Error Handling
+
+**Best Practice:** Use dynamic error handling that extracts actual error messages from the API response instead of hardcoding messages for each status code.
+
+### Dynamic Error Handling (Recommended)
+```json
+{
+    \"response\": {
+        \"error\": {
+            \"message\": \"[{{statusCode}}] {{body.error || body.message || 'Unknown error'}}\"
+        }
+    }
+}
+```
+
+**Why Dynamic is Better:**
+- Returns the actual error message from the API
+- More accurate and detailed error information
+- Easier to maintain
+- Adapts to API changes automatically
+
+### Comprehensive Error Handling (Only use when API requires specific handling per status)
 ```json
 {
     \"response\": {
@@ -84,6 +105,7 @@ This document contains frequently used patterns, code snippets, and configuratio
     }
 }
 ```
+**Note:** Only use comprehensive error handling when you need to handle specific status codes differently or add custom types.
 
 ### Rate Limit Handling
 ```json
@@ -435,7 +457,26 @@ This document contains frequently used patterns, code snippets, and configuratio
 
 ## Response Processing Patterns
 
-### Simple Output Mapping
+### ⚠️ CRITICAL: Avoid Unnecessary Output Wrappers
+
+**Best Practice:** Output the API response body directly without wrapping it in an unnecessary object unless you need to transform the data.
+
+### Direct Output (Recommended)
+```json
+{
+    \"response\": {
+        \"output\": \"{{body}}\"
+    }
+}
+```
+
+**Why Direct Output is Better:**
+- Cleaner data structure in Make.com workflows
+- Easier for users to work with the data
+- Less nesting means simpler mappings
+- Preserves the original API response structure
+
+### Simple Output Mapping (When transformation is needed)
 ```json
 {
     \"response\": {
@@ -448,6 +489,12 @@ This document contains frequently used patterns, code snippets, and configuratio
     }
 }
 ```
+
+**Only use mapping when:**
+- You need to rename fields for clarity
+- You need to transform or compute values
+- You need to extract specific nested fields
+- The API returns inconsistent structures
 
 ### Nested Data Extraction
 ```json
@@ -778,6 +825,64 @@ function validateEmail(email) {
     {\"name\": \"metadata\", \"type\": \"collection\", \"label\": \"Metadata\"}
 ]
 ```
+
+## Universal Module Patterns
+
+### ⚠️ CRITICAL: "Make an API Call" Module Must Repeat Root URL
+
+**Best Practice:** Universal "Make an API Call" modules should concatenate the base URL with the user-provided endpoint path.
+
+### Incorrect Pattern (Don't Use)
+```json
+{
+    \"url\": \"{{parameters.url}}\",
+    \"method\": \"{{parameters.method}}\"
+}
+```
+
+**Problem:** Users must enter full URLs, risking errors and wrong environments.
+
+### Correct Pattern (Recommended)
+```json
+{
+    \"url\": \"https://api.example.com/v1{{parameters.url}}\",
+    \"method\": \"{{parameters.method}}\",
+    \"headers\": {
+        \"{{...}}\": \"{{toCollection(parameters.headers, 'key', 'value')}}\"
+    },
+    \"qs\": {
+        \"{{...}}\": \"{{toCollection(parameters.qs, 'key', 'value')}}\"
+    },
+    \"body\": \"{{parameters.body}}\",
+    \"type\": \"{{parameters.type}}\",
+    \"response\": {
+        \"output\": {
+            \"body\": \"{{body}}\",
+            \"headers\": \"{{headers}}\",
+            \"statusCode\": \"{{statusCode}}\"
+        }
+    }
+}
+```
+
+### Dynamic Base URL Pattern
+```json
+{
+    \"url\": \"https://{{if(connection.environment = 'production', 'api', 'sandbox')}}.example.com/v1{{parameters.url}}\",
+    \"method\": \"{{parameters.method}}\"
+}
+```
+
+**Benefits:**
+- ✅ Users only enter endpoint paths: `/users`, `/accounts`, etc.
+- ✅ Automatic environment switching (sandbox/production)
+- ✅ Prevents wrong base URL errors
+- ✅ Consistent with base.imljson configuration
+- ✅ Better user experience
+
+**Example:**
+- User input: `/accounts`
+- Actual call: `https://api.example.com/v1/accounts`
 
 ## Logging and Security Patterns
 
