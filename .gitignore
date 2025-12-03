@@ -1,6 +1,9 @@
 # App folders (specific implementations for clients)
-2ploon-app/
-finapi-access-gcbjdi/
+# Pattern: ignore all directories except knowledgebase
+/*
+!/.gitignore
+!/knowledgebase/
+!*.md
 
 # App documentation files
 2PLOON-APP-COMPLETE.md
