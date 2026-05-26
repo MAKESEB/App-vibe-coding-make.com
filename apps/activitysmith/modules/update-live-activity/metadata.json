@@ -1,0 +1,8 @@
+{
+  "name": "updateLiveActivity",
+  "label": "Update Live Activity",
+  "description": "Update an existing iOS Live Activity through ActivitySmith.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

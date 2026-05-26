@@ -1,0 +1,8 @@
+{
+  "name": "startLiveActivity",
+  "label": "Start Live Activity",
+  "description": "Start an iOS Live Activity through ActivitySmith.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

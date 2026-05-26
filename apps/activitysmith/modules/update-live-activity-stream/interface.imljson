@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "ID"
+  },
+  {
+    "name": "success",
+    "type": "boolean",
+    "label": "Success"
+  },
+  {
+    "name": "message",
+    "type": "text",
+    "label": "Message"
+  },
+  {
+    "name": "data",
+    "type": "collection",
+    "label": "Data"
+  },
+  {
+    "name": "streamKey",
+    "type": "text",
+    "label": "Stream Key"
+  },
+  {
+    "name": "activityId",
+    "type": "text",
+    "label": "Activity ID"
+  }
+]

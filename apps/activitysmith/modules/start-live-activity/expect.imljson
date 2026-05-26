@@ -1,0 +1,34 @@
+[
+  {
+    "name": "activityType",
+    "type": "text",
+    "label": "Activity Type",
+    "required": true,
+    "help": "Activity type/template identifier."
+  },
+  {
+    "name": "attributes",
+    "type": "collection",
+    "label": "Attributes",
+    "help": "Live Activity attributes object."
+  },
+  {
+    "name": "contentState",
+    "type": "collection",
+    "label": "Content State",
+    "required": true,
+    "help": "Initial Live Activity content state."
+  },
+  {
+    "name": "pushToken",
+    "type": "text",
+    "label": "Push Token",
+    "help": "Optional push token/device identifier."
+  },
+  {
+    "name": "data",
+    "type": "collection",
+    "label": "Data",
+    "help": "Optional custom JSON payload."
+  }
+]

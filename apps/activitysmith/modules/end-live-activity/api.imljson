@@ -1,0 +1,12 @@
+{
+  "url": "/live-activity/end",
+  "method": "POST",
+  "body": {
+    "activityId": "{{parameters.activityId}}",
+    "finalContentState": "{{if(parameters.finalContentState != null, parameters.finalContentState, undefined)}}",
+    "dismissImmediately": "{{if(parameters.dismissImmediately != null, parameters.dismissImmediately, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

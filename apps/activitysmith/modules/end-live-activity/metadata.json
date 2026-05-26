@@ -1,0 +1,8 @@
+{
+  "name": "endLiveActivity",
+  "label": "End Live Activity",
+  "description": "End an iOS Live Activity through ActivitySmith.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

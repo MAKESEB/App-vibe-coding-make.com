@@ -1,0 +1,14 @@
+{
+  "url": "/push-notification",
+  "method": "POST",
+  "body": {
+    "title": "{{parameters.title}}",
+    "message": "{{parameters.message}}",
+    "data": "{{if(parameters.data != null, parameters.data, undefined)}}",
+    "url": "{{ifempty(parameters.url, undefined)}}",
+    "sound": "{{if(parameters.sound != null, parameters.sound, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}
