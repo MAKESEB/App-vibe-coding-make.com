@@ -302,17 +302,23 @@ upload_and_publish() {
     return 0
   fi
 
-  make-cli sdk-apps set-public "$remote_app" 1 >/dev/null
-  find "${APP_DIR}/modules" -mindepth 2 -maxdepth 2 -name metadata.json | sort | while IFS= read -r module_meta; do
-    module_name="$(ruby -rjson -e 'print JSON.parse(File.read(ARGV[0]))["name"]' "$module_meta")"
-    make-cli sdk-modules set-public "$remote_app" 1 "$module_name" >/dev/null
-  done
+  # App publishing can return a transient error if Make has already accepted
+  # the publish request. Continue when readback confirms app public=true.
+  if ! make-cli sdk-apps set-public "$remote_app" 1 >/tmp/${APP_SLUG}-set-app-public.out 2>/tmp/${APP_SLUG}-set-app-public.err; then
+    echo "App public request did not complete cleanly; continuing with readback verification. $(tr -d '\n' < "/tmp/${APP_SLUG}-set-app-public.err" | cut -c1-160)"
+  fi
 
-  # Retry until all module public flags read back true; Make can be eventually consistent.
-  for attempt in 1 2 3 4 5; do
+  publish_modules() {
+    find "${APP_DIR}/modules" -mindepth 2 -maxdepth 2 -name metadata.json | sort | while IFS= read -r module_meta; do
+      module_name="$(ruby -rjson -e 'print JSON.parse(File.read(ARGV[0]))["name"]' "$module_meta")"
+      make-cli sdk-modules set-public "$remote_app" 1 "$module_name" >/dev/null || true
+    done
+  }
+
+  verify_public() {
     make-cli sdk-apps get --name="$remote_app" --version=1 --output=json > "/tmp/${APP_SLUG}-app.json"
     make-cli sdk-modules list --app-name="$remote_app" --app-version=1 --output=json > "/tmp/${APP_SLUG}-modules.json"
-    if python3 - "$APP_SLUG" "$remote_app" <<'PY'
+    python3 - "$APP_SLUG" "$remote_app" <<'PY'
 import json, sys
 app_slug, remote_app = sys.argv[1:]
 app = json.load(open(f'/tmp/{app_slug}-app.json'))
@@ -325,15 +331,18 @@ if app.get('public') is True and not private:
 print('private_modules=' + ','.join(private))
 raise SystemExit(1)
 PY
-    then
-      break
+  }
+
+  publish_modules
+  # Retry until all module public flags read back true; Make can be eventually consistent.
+  for attempt in 1 2 3 4 5; do
+    if verify_public; then
+      return 0
     fi
-    find "${APP_DIR}/modules" -mindepth 2 -maxdepth 2 -name metadata.json | sort | while IFS= read -r module_meta; do
-      module_name="$(ruby -rjson -e 'print JSON.parse(File.read(ARGV[0]))["name"]' "$module_meta")"
-      make-cli sdk-modules set-public "$remote_app" 1 "$module_name" >/dev/null
-    done
+    publish_modules
     sleep 8
   done
+  verify_public
 }
 
 create_branch_if_requested() {
