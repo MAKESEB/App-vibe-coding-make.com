@@ -1,0 +1,7 @@
+{
+  "url": "/platform_api/VerifyApikey",
+  "method": "POST",
+  "response": {
+    "output": "{{body}}"
+  }
+}

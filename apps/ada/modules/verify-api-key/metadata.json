@@ -1,0 +1,8 @@
+{
+  "name": "verifyApiKey",
+  "label": "Verify API Key",
+  "description": "Verify the configured Ada API key.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

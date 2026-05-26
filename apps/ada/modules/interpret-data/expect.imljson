@@ -1,0 +1,16 @@
+[
+  {
+    "name": "inputJson",
+    "type": "collection",
+    "label": "Input JSON",
+    "required": true,
+    "help": "JSON data to interpret."
+  },
+  {
+    "name": "query",
+    "type": "text",
+    "label": "Query",
+    "required": true,
+    "help": "Interpretation question or instruction."
+  }
+]

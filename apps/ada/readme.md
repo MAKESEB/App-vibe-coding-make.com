@@ -1,22 +1,25 @@
-# Ada
+# Ada Make Custom App
 
-Ada provides AI-powered data analysis, interpretation, and visualization tools.
+This generated app provides a production-oriented Make custom app for Ada's API exposed by the extracted `n8n-nodes-ada@0.1.6` package. It keeps the mandatory universal **Make an API Call** fallback and adds first-class modules for each endpoint found in the package routing definitions.
 
-This Make custom app is based on the locally extracted `n8n-nodes-ada` 0.1.6 package. The package defines the Ada API base URL as `https://ada.im/api`, authenticates by sending the configured API key directly in the `Authorization` header, and verifies credentials with `POST /platform_api/VerifyApikey`.
+## Source details
 
-## Authentication
+- n8n source package: `n8n-nodes-ada@0.1.6`
+- Base URL: `https://ada.im/api`
+- Authentication: raw `Authorization` header populated from the connection API key.
 
-Create an API key in the Ada API management dashboard at `https://ada.im`, then paste it into the API Key connection. The key is sent as the raw `Authorization` header value and is sanitized from logs.
+## Included modules
 
-## Supported API areas
+- **Verify API Key** (`verifyApiKey`) calls `POST /platform_api/VerifyApikey`.
+- **Analyze Python Data** (`analyzePythonData`) calls `POST /platform_api/PythonDataAnalysis`.
+- **Interpret Data** (`interpretData`) calls `POST /platform_api/DataInterpretation`.
+- **Create ECharts Visualization** (`createEchartsVisualization`) calls `POST /platform_api/EchartsVisualization`.
+- **Make an API Call** (`makeAnApiCall`) remains available as the required universal fallback.
 
-Use **Make an API Call** with Ada API paths discovered from the n8n package source:
+## Generator classification
 
-- `POST /platform_api/VerifyApikey`
-- `POST /platform_api/PythonDataAnalysis`
-- `POST /platform_api/DataInterpretation`
-- `POST /platform_api/EchartsVisualization`
+Classification: `production-ready`. This app is not universal-only; it includes endpoint-specific modules generated from the Ada endpoint matrix above.
 
-The analysis, interpretation, and visualization endpoints accept JSON request bodies with fields such as `input_json` and `query`, matching the n8n node routing definitions. The module accepts relative paths under `https://ada.im/api` and returns the status code, response headers, and response body.
+## Notes
 
-No remote Make upload was performed.
+Do not add an `Authorization` header in module inputs; the app sends the configured API key from the connection. The data modules use `input_json` and `query` request fields matching the extracted n8n node routing definitions.

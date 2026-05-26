@@ -1,0 +1,11 @@
+{
+  "inputJson": {
+    "sales": [
+      {
+        "month": "Jan",
+        "revenue": 100
+      }
+    ]
+  },
+  "query": "Create a bar chart of revenue by month"
+}

@@ -1,0 +1,11 @@
+{
+  "inputJson": {
+    "sales": [
+      {
+        "month": "Jan",
+        "revenue": 100
+      }
+    ]
+  },
+  "query": "Summarize revenue trends"
+}

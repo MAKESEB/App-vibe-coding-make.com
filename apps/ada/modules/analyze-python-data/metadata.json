@@ -1,0 +1,8 @@
+{
+  "name": "analyzePythonData",
+  "label": "Analyze Python Data",
+  "description": "Run Ada Python data analysis on JSON data with a natural-language query.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}
