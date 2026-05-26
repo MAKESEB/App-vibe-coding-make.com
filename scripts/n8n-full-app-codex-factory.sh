@@ -226,9 +226,10 @@ run_codex() {
   fi
 
   mkdir -p "$CODEX_HOME"
+  export CODEX_HOME
   echo "Running Codex with CODEX_HOME=${CODEX_HOME}"
   if [[ -f "${CODEX_HOME}/auth.json" && -z "${OPENAI_API_KEY:-}" ]]; then
-    OPENAI_API_KEY="$(python3 - <<'PY'
+    codex_api_key="$(python3 - <<'PY'
 import json, os, pathlib
 path = pathlib.Path(os.environ['CODEX_HOME']) / 'auth.json'
 try:
@@ -237,9 +238,14 @@ try:
 except Exception:
     print('')
 PY
-)" CODEX_HOME="$CODEX_HOME" codex --ask-for-approval never exec --sandbox workspace-write "$(cat "$PROMPT_FILE")"
+    )"
+    if [[ -n "$codex_api_key" ]]; then
+      OPENAI_API_KEY="$codex_api_key" codex --ask-for-approval never exec --sandbox workspace-write "$(cat "$PROMPT_FILE")"
+    else
+      codex --ask-for-approval never exec --sandbox workspace-write "$(cat "$PROMPT_FILE")"
+    fi
   else
-    CODEX_HOME="$CODEX_HOME" codex --ask-for-approval never exec --sandbox workspace-write "$(cat "$PROMPT_FILE")"
+    codex --ask-for-approval never exec --sandbox workspace-write "$(cat "$PROMPT_FILE")"
   fi
 }
 
@@ -290,6 +296,11 @@ upload_and_publish() {
   result_line="$(grep 'APP_RESULT' "/tmp/make-upload-${APP_SLUG}.out" | tail -1 || true)"
   remote_app="$(printf '%s' "$result_line" | sed -n 's/.*remote_app=\([^ ]*\).*/\1/p')"
   [[ -n "$remote_app" ]] || { echo "Could not determine remote app from upload output" >&2; exit 1; }
+
+  if [[ "$MAKE_PUBLIC" != "1" ]]; then
+    echo "MAKE_PUBLIC=0, skipping app/module public visibility."
+    return 0
+  fi
 
   make-cli sdk-apps set-public "$remote_app" 1 >/dev/null
   find "${APP_DIR}/modules" -mindepth 2 -maxdepth 2 -name metadata.json | sort | while IFS= read -r module_meta; do
