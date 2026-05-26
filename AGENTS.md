@@ -15,6 +15,7 @@ Start with:
 - `knowledgebase/08-PARAMETER-TYPES.md`
 - `knowledgebase/22-CONNECTION-UPLOAD-LEARNINGS.md`
 - `knowledgebase/26-APP-ICON-LOGO-UPLOAD-WORKFLOW.md`
+- `knowledgebase/27-COMPLETE-APP-MODULE-PUBLIC-WORKFLOW.md`
 
 Use existing app implementations as references:
 
