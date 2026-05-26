@@ -4,6 +4,7 @@
     "type": "text",
     "label": "Path",
     "required": true,
+    "default": "/info/me",
     "help": "Relative Actaport API path under https://app.actaport.de/v1, for example /info/me, /kontakte, or /webhooks."
   },
   {
@@ -39,7 +40,6 @@
     "name": "headers",
     "type": "array",
     "label": "Headers",
-    "help": "Additional headers only. Do not add Authorization here.",
     "spec": [
       {
         "name": "key",
@@ -51,7 +51,8 @@
         "type": "text",
         "label": "Value"
       }
-    ]
+    ],
+    "help": "Additional headers only. Do not add Authorization; the app sends the OAuth bearer token."
   },
   {
     "name": "qs",
@@ -73,7 +74,6 @@
   {
     "name": "body",
     "type": "any",
-    "label": "Body",
-    "help": "Optional request body for POST, PUT, and PATCH requests."
+    "label": "Body"
   }
 ]

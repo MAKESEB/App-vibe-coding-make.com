@@ -1,7 +1,7 @@
 {
   "name": "actaport",
   "label": "Actaport",
-  "description": "Actaport OAuth2 app for authorized REST API calls.",
+  "description": "Production-ready Actaport integration generated from @actaport/n8n-nodes-actaport@0.3.0.",
   "version": 1,
   "author": "OpenAI Codex",
   "url": "https://www.actaport.de/",
