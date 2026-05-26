@@ -1,30 +1,15 @@
 # Actaport
 
-This local Make custom app was generated from the exact npm package `@actaport/n8n-nodes-actaport@0.3.0`.
+This Make custom app was generated from the exact npm package `@actaport/n8n-nodes-actaport@0.3.0` extracted at `/Users/s.mertens/Documents/GitHub/App-vibe-coding-make.com/tmp/n8n-source/actaport`.
 
-The package defines an Actaport OAuth2 PKCE connection and Actaport REST API routing. This Make app provides a connection and a universal **Make an API Call** module so authorized requests can be sent to the Actaport API.
+Classification: **production-ready**. The app includes the mandatory universal **Make an API Call** module plus endpoint-specific modules generated from the Actaport n8n node source.
 
-## Source details
+## Authentication
 
-- npm package: `@actaport/n8n-nodes-actaport@0.3.0`
-- Package API base URL: `https://app.actaport.de/v1`
-- Credential test endpoint: `GET https://app.actaport.de/v1/info/me`
-- OAuth authorization URL pattern: `https://app.actaport.de/auth/realms/{realm}/protocol/openid-connect/auth`
-- OAuth token URL pattern: `https://app.actaport.de/auth/realms/{realm}/protocol/openid-connect/token`
-- Client ID: `automation`
-- Scope: `openid offline_access`
-- Grant type: authorization code with PKCE
+Actaport uses OAuth2 authorization code with PKCE. Enter the Actaport realm supplied with the subscription. The app uses client ID `automation`, scope `openid offline_access`, and validates the connection with `GET https://app.actaport.de/v1/info/me`.
 
-## Connection setup
+## Generated coverage
 
-Create an Actaport OAuth connection and enter the Actaport realm supplied with the Actaport subscription. API access must be enabled for the Actaport account.
+The app maps Actaport resources from the n8n package: additional information categories, case files, collision checks, contacts, deadlines, departments, documents, document templates, expenses, folders, invoices, notes, resubmissions, RVG fees, tasks, third party costs, users, and webhooks. List/search modules iterate `body.content` and follow Actaport page metadata where `last === false`.
 
-## Make an API Call
-
-Enter a path relative to `https://app.actaport.de/v1`, for example `/info/me`, `/kontakte`, or `/webhooks`.
-
-Do not add an `Authorization` header in the module input. The app adds `Authorization: Bearer {{connection.accessToken}}` automatically.
-
-## Notes
-
-The n8n package contains many operation definitions for Actaport resources, but this task requested a local app with a universal API call module rather than a full resource-by-resource Make translation. No remote upload was performed.
+Document binary upload is not emitted as a first-class module because the n8n package implements it with a runtime multipart/binary helper. Use **Make an API Call** or add a dedicated binary module if needed.
