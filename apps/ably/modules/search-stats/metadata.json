@@ -1,0 +1,8 @@
+{
+  "name": "searchStats",
+  "label": "Search Statistics",
+  "description": "Retrieve Ably application usage statistics.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}

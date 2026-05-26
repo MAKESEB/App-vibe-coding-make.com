@@ -1,0 +1,37 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "ID"
+  },
+  {
+    "name": "clientId",
+    "type": "text",
+    "label": "Client ID"
+  },
+  {
+    "name": "connectionId",
+    "type": "text",
+    "label": "Connection ID"
+  },
+  {
+    "name": "action",
+    "type": "text",
+    "label": "Action"
+  },
+  {
+    "name": "data",
+    "type": "any",
+    "label": "Data"
+  },
+  {
+    "name": "encoding",
+    "type": "text",
+    "label": "Encoding"
+  },
+  {
+    "name": "timestamp",
+    "type": "date",
+    "label": "Timestamp"
+  }
+]

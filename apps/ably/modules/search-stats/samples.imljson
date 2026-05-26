@@ -1,0 +1,5 @@
+{
+  "unit": "minute",
+  "direction": "backwards",
+  "limit": 25
+}

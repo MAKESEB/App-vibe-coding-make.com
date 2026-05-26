@@ -1,0 +1,52 @@
+[
+  {
+    "name": "intervalId",
+    "type": "text",
+    "label": "Interval ID"
+  },
+  {
+    "name": "unit",
+    "type": "text",
+    "label": "Unit"
+  },
+  {
+    "name": "count",
+    "type": "number",
+    "label": "Count"
+  },
+  {
+    "name": "inbound",
+    "type": "collection",
+    "label": "Inbound"
+  },
+  {
+    "name": "outbound",
+    "type": "collection",
+    "label": "Outbound"
+  },
+  {
+    "name": "persisted",
+    "type": "collection",
+    "label": "Persisted"
+  },
+  {
+    "name": "connections",
+    "type": "collection",
+    "label": "Connections"
+  },
+  {
+    "name": "channels",
+    "type": "collection",
+    "label": "Channels"
+  },
+  {
+    "name": "apiRequests",
+    "type": "collection",
+    "label": "API Requests"
+  },
+  {
+    "name": "tokenRequests",
+    "type": "collection",
+    "label": "Token Requests"
+  }
+]

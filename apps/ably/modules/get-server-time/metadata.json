@@ -1,0 +1,8 @@
+{
+  "name": "getServerTime",
+  "label": "Get Server Time",
+  "description": "Retrieve the current Ably server time.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "name": "channelName",
+    "type": "text",
+    "label": "Channel Name",
+    "required": true,
+    "help": "Ably channel name to read presence from."
+  },
+  {
+    "name": "clientId",
+    "type": "text",
+    "label": "Client ID",
+    "help": "Optional client ID filter."
+  },
+  {
+    "name": "connectionId",
+    "type": "text",
+    "label": "Connection ID",
+    "help": "Optional connection ID filter."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "default": 100,
+    "help": "Maximum presence members to return."
+  }
+]

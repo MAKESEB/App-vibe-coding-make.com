@@ -1,0 +1,7 @@
+{
+  "channelName": "orders",
+  "name": "created",
+  "data": {
+    "orderId": "ord_123"
+  }
+}

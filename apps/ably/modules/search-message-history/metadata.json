@@ -1,0 +1,8 @@
+{
+  "name": "searchMessageHistory",
+  "label": "Search Message History",
+  "description": "Retrieve persisted message history for an Ably channel.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}

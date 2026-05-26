@@ -1,0 +1,8 @@
+{
+  "name": "searchPresenceMembers",
+  "label": "Search Presence Members",
+  "description": "Retrieve current presence members for an Ably channel.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}

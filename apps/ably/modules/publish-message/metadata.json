@@ -1,0 +1,8 @@
+{
+  "name": "publishMessage",
+  "label": "Publish a Message",
+  "description": "Publish one message to an Ably channel using the REST publish endpoint.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

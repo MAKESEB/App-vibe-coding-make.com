@@ -1,0 +1,45 @@
+[
+  {
+    "name": "channelName",
+    "type": "text",
+    "label": "Channel Name",
+    "required": true,
+    "help": "Ably channel name to read history from."
+  },
+  {
+    "name": "direction",
+    "type": "select",
+    "label": "Direction",
+    "options": [
+      {
+        "label": "Backwards",
+        "value": "backwards"
+      },
+      {
+        "label": "Forwards",
+        "value": "forwards"
+      }
+    ],
+    "default": "backwards",
+    "help": "Ably history direction."
+  },
+  {
+    "name": "start",
+    "type": "text",
+    "label": "Start",
+    "help": "Optional start timestamp in milliseconds since epoch."
+  },
+  {
+    "name": "end",
+    "type": "text",
+    "label": "End",
+    "help": "Optional end timestamp in milliseconds since epoch."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "default": 100,
+    "help": "Maximum messages to return. Ably supports up to 1000 per request."
+  }
+]
