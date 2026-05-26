@@ -1,0 +1,9 @@
+[
+  {
+    "name": "brandId",
+    "type": "uinteger",
+    "label": "Brand ID",
+    "required": true,
+    "help": "Brand ID to delete."
+  }
+]

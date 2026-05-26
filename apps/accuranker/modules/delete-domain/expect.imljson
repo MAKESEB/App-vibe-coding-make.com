@@ -1,0 +1,9 @@
+[
+  {
+    "name": "domainId",
+    "type": "uinteger",
+    "label": "Domain ID",
+    "required": true,
+    "help": "Domain ID to delete."
+  }
+]

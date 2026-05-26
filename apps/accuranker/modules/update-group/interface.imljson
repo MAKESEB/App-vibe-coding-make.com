@@ -1,0 +1,22 @@
+[
+  {
+    "name": "id",
+    "type": "number",
+    "label": "ID"
+  },
+  {
+    "name": "name",
+    "type": "text",
+    "label": "Name"
+  },
+  {
+    "name": "account_id",
+    "type": "number",
+    "label": "Account ID"
+  },
+  {
+    "name": "domains",
+    "type": "array",
+    "label": "Domains"
+  }
+]

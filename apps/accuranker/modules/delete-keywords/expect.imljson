@@ -1,0 +1,13 @@
+[
+  {
+    "name": "keywordIds",
+    "type": "array",
+    "label": "Keyword IDs",
+    "required": true,
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    },
+    "help": "Keyword IDs to delete."
+  }
+]

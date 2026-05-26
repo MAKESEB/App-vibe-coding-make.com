@@ -1,0 +1,8 @@
+{
+  "name": "updateBrand",
+  "label": "Update Brand",
+  "description": "Update an AccuRanker AI brand.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

@@ -1,0 +1,8 @@
+{
+  "name": "deleteBrand",
+  "label": "Delete Brand",
+  "description": "Delete an AccuRanker AI brand.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

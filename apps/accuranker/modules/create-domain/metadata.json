@@ -1,0 +1,8 @@
+{
+  "name": "createDomain",
+  "label": "Create Domain",
+  "description": "Create an AccuRanker domain.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

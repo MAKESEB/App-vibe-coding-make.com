@@ -1,0 +1,48 @@
+[
+  {
+    "name": "domain",
+    "type": "text",
+    "label": "Domain",
+    "required": true,
+    "help": "Domain name, for example example.org."
+  },
+  {
+    "name": "groupId",
+    "type": "uinteger",
+    "label": "Group ID",
+    "required": true,
+    "help": "Group ID for the domain."
+  },
+  {
+    "name": "displayName",
+    "type": "text",
+    "label": "Display Name",
+    "help": "Optional display name."
+  },
+  {
+    "name": "includeSubdomains",
+    "type": "boolean",
+    "label": "Include Subdomains"
+  },
+  {
+    "name": "exactMatch",
+    "type": "boolean",
+    "label": "Exact Match"
+  },
+  {
+    "name": "defaultSearchsettingsNames",
+    "type": "array",
+    "label": "Default Search Settings Names",
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    },
+    "help": "Default search setting names to apply."
+  },
+  {
+    "name": "extraFields",
+    "type": "collection",
+    "label": "Extra Fields",
+    "help": "Optional advanced fields from the AccuRanker DomainSchemaValidated schema."
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "id",
+    "type": "number",
+    "label": "ID"
+  },
+  {
+    "name": "keyword",
+    "type": "text",
+    "label": "Keyword"
+  },
+  {
+    "name": "country",
+    "type": "text",
+    "label": "Country"
+  },
+  {
+    "name": "language",
+    "type": "text",
+    "label": "Language"
+  },
+  {
+    "name": "location",
+    "type": "text",
+    "label": "Location"
+  },
+  {
+    "name": "search_engine",
+    "type": "text",
+    "label": "Search Engine"
+  },
+  {
+    "name": "search_type",
+    "type": "text",
+    "label": "Search Type"
+  }
+]

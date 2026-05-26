@@ -1,0 +1,10 @@
+{
+  "url": "/keyword/",
+  "method": "DELETE",
+  "body": {
+    "keyword_ids": "{{parameters.keywordIds}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

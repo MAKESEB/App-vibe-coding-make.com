@@ -1,0 +1,15 @@
+[
+  {
+    "name": "includeSubaccounts",
+    "type": "boolean",
+    "label": "Include Subaccounts",
+    "help": "Include subaccount groups when the API key has access."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "help": "Maximum groups to return."
+  }
+]

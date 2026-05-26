@@ -1,0 +1,8 @@
+{
+  "name": "deleteGroup",
+  "label": "Delete Group",
+  "description": "Delete an AccuRanker group.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

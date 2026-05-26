@@ -1,0 +1,11 @@
+{
+  "url": "/group/{{parameters.groupId}}",
+  "method": "PUT",
+  "body": {
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "account_id": "{{if(parameters.accountId != null, parameters.accountId, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

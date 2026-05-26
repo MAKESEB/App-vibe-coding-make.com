@@ -1,0 +1,15 @@
+{
+  "url": "/brand/",
+  "method": "POST",
+  "body": {
+    "domain": "{{parameters.domain}}",
+    "group_id": "{{parameters.groupId}}",
+    "display_name": "{{ifempty(parameters.displayName, undefined)}}",
+    "brand_list": "{{parameters.brandList}}",
+    "exact_match": "{{if(parameters.exactMatch != null, parameters.exactMatch, undefined)}}",
+    "default_countrylocale": "{{ifempty(parameters.defaultCountrylocale, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

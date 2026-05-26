@@ -1,0 +1,12 @@
+{
+  "url": "/overview/group_domains",
+  "method": "GET",
+  "qs": {
+    "include_subaccounts": "{{if(parameters.includeSubaccounts != null, parameters.includeSubaccounts, undefined)}}"
+  },
+  "response": {
+    "iterate": "{{body.accounts || body.groups || body}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

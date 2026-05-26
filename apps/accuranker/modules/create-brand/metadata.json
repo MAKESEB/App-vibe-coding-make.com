@@ -1,0 +1,8 @@
+{
+  "name": "createBrand",
+  "label": "Create Brand",
+  "description": "Create an AccuRanker AI brand.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

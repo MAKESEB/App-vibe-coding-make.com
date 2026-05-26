@@ -1,0 +1,7 @@
+{
+  "url": "/brand/{{parameters.brandId}}",
+  "method": "DELETE",
+  "response": {
+    "output": "{{body}}"
+  }
+}

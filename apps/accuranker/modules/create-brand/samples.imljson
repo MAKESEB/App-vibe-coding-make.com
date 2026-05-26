@@ -1,0 +1,7 @@
+{
+  "domain": "example.org",
+  "groupId": 12345,
+  "brandList": [
+    "Example"
+  ]
+}

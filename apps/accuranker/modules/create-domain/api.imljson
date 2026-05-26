@@ -1,0 +1,16 @@
+{
+  "url": "/domain/",
+  "method": "POST",
+  "body": {
+    "domain": "{{parameters.domain}}",
+    "group_id": "{{parameters.groupId}}",
+    "display_name": "{{ifempty(parameters.displayName, undefined)}}",
+    "include_subdomains": "{{if(parameters.includeSubdomains != null, parameters.includeSubdomains, undefined)}}",
+    "exact_match": "{{if(parameters.exactMatch != null, parameters.exactMatch, undefined)}}",
+    "default_searchsettings_names": "{{if(parameters.defaultSearchsettingsNames != null, parameters.defaultSearchsettingsNames, undefined)}}",
+    "{{...}}": "{{parameters.extraFields}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

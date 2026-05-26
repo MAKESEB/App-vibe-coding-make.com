@@ -1,0 +1,8 @@
+{
+  "name": "updateGroup",
+  "label": "Update Group",
+  "description": "Update an AccuRanker group.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

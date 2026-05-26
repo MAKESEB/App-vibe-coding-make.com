@@ -1,0 +1,59 @@
+[
+  {
+    "name": "domainId",
+    "type": "uinteger",
+    "label": "Domain ID",
+    "required": true,
+    "help": "Domain ID."
+  },
+  {
+    "name": "keywordIds",
+    "type": "array",
+    "label": "Keyword IDs",
+    "required": true,
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    },
+    "help": "Keyword IDs to update."
+  },
+  {
+    "name": "tags",
+    "type": "array",
+    "label": "Tags",
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    }
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "label": "Description"
+  },
+  {
+    "name": "starred",
+    "type": "boolean",
+    "label": "Starred"
+  },
+  {
+    "name": "ignoreLocalResults",
+    "type": "boolean",
+    "label": "Ignore Local Results"
+  },
+  {
+    "name": "ignoreFeaturedSnippet",
+    "type": "boolean",
+    "label": "Ignore Featured Snippet"
+  },
+  {
+    "name": "ignoreInShareOfVoice",
+    "type": "boolean",
+    "label": "Ignore in Share of Voice"
+  },
+  {
+    "name": "enableAutocorrect",
+    "type": "boolean",
+    "label": "Enable Autocorrect"
+  }
+]
