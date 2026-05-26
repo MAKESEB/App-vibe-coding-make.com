@@ -71,6 +71,17 @@ Before generating files:
 3. For list/search modules, include a user-facing `limit` parameter and implement API pagination if the service supports it.
 4. Preserve falsy-but-valid filter values such as `0` and `false`; do not use `ifempty()` for optional numeric, select, or boolean values where `0` is meaningful.
 
+### Production module completeness rule
+
+The universal **Make an API Call** module is mandatory for generated apps, but it is not sufficient for a production-ready app unless the app is explicitly marked as a minimal shell/scaffold.
+
+Every generator that emits app files must classify each app as one of:
+
+- `minimal-shell-scaffold`: intentionally universal-only; README and generated report must say this is not product-complete.
+- `production-ready`: includes the universal module plus specific modules generated from a real endpoint matrix.
+
+For `production-ready` apps, the generator must add specific modules from real API endpoints: searches for list endpoints, actions for read/create/update/delete/status endpoints, and triggers/webhooks where the API supports them. Do not call an app production-ready if it only contains `modules/make-api-call`.
+
 ## Base and Connection Rules
 
 `base.imljson` should include:
