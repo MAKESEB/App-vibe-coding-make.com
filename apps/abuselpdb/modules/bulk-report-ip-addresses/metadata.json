@@ -1,0 +1,8 @@
+{
+  "name": "bulkReportIpAddresses",
+  "label": "Bulk Report IP Addresses",
+  "description": "Submit AbuseIPDB bulk report CSV data.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

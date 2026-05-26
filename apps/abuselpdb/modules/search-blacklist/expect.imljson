@@ -1,0 +1,18 @@
+[
+  {
+    "name": "confidenceMinimum",
+    "type": "uinteger",
+    "label": "Confidence Minimum",
+    "required": true,
+    "default": 90,
+    "help": "Minimum abuse confidence score."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "default": 10000,
+    "help": "Maximum records to return locally from the blacklist response."
+  }
+]

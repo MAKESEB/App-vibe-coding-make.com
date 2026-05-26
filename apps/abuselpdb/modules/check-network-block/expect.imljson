@@ -1,0 +1,17 @@
+[
+  {
+    "name": "network",
+    "type": "text",
+    "label": "Network",
+    "required": true,
+    "help": "CIDR network block, for example 127.0.0.1/24."
+  },
+  {
+    "name": "maxAgeInDays",
+    "type": "uinteger",
+    "label": "Max Age in Days",
+    "required": true,
+    "default": 15,
+    "help": "Only include reports within this age."
+  }
+]

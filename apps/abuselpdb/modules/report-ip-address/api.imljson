@@ -1,0 +1,13 @@
+{
+  "url": "/report",
+  "method": "POST",
+  "type": "urlencoded",
+  "body": {
+    "ip": "{{parameters.ip}}",
+    "categories": "{{parameters.categories}}",
+    "comment": "{{ifempty(parameters.comment, undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data || body}}"
+  }
+}

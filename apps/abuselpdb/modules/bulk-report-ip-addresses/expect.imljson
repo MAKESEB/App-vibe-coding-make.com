@@ -1,0 +1,14 @@
+[
+  {
+    "name": "csv",
+    "type": "buffer",
+    "label": "CSV File Data",
+    "required": true
+  },
+  {
+    "name": "filename",
+    "type": "text",
+    "label": "Filename",
+    "help": "CSV filename sent to AbuseIPDB."
+  }
+]

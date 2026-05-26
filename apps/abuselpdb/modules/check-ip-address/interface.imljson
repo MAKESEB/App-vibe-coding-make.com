@@ -1,0 +1,70 @@
+[
+  {
+    "name": "ipAddress",
+    "type": "text",
+    "label": "IP Address"
+  },
+  {
+    "name": "isPublic",
+    "type": "boolean",
+    "label": "Is Public"
+  },
+  {
+    "name": "ipVersion",
+    "type": "number",
+    "label": "IP Version"
+  },
+  {
+    "name": "isWhitelisted",
+    "type": "boolean",
+    "label": "Is Whitelisted"
+  },
+  {
+    "name": "abuseConfidenceScore",
+    "type": "number",
+    "label": "Abuse Confidence Score"
+  },
+  {
+    "name": "countryCode",
+    "type": "text",
+    "label": "Country Code"
+  },
+  {
+    "name": "usageType",
+    "type": "text",
+    "label": "Usage Type"
+  },
+  {
+    "name": "isp",
+    "type": "text",
+    "label": "ISP"
+  },
+  {
+    "name": "domain",
+    "type": "text",
+    "label": "Domain"
+  },
+  {
+    "name": "hostnames",
+    "type": "array",
+    "label": "Hostnames",
+    "spec": {
+      "type": "text"
+    }
+  },
+  {
+    "name": "totalReports",
+    "type": "number",
+    "label": "Total Reports"
+  },
+  {
+    "name": "numDistinctUsers",
+    "type": "number",
+    "label": "Distinct Users"
+  },
+  {
+    "name": "lastReportedAt",
+    "type": "date",
+    "label": "Last Reported At"
+  }
+]
