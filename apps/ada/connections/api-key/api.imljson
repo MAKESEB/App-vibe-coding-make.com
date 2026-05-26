@@ -1,0 +1,16 @@
+{
+  "url": "https://ada.im/api/platform_api/VerifyApikey",
+  "method": "POST",
+  "headers": {
+    "Authorization": "{{connection.apiKey}}",
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "response": {
+    "uid": "{{connection.apiKey}}",
+    "metadata": {
+      "type": "text",
+      "value": "Ada API Key"
+    }
+  }
+}

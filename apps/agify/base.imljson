@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://api.agify.io",
+  "headers": {
+    "Accept": "application/json"
+  },
+  "qs": {
+    "apikey": "{{connection.apiKey}}"
+  },
+  "response": {
+    "error": {
+      "401": {
+        "message": "[401] Authentication failed. Check your Agify API key."
+      },
+      "403": {
+        "message": "[403] Access denied. Check your Agify API key or plan limits."
+      },
+      "429": {
+        "message": "[429] Agify rate limit exceeded. Check your API key plan limits."
+      },
+      "message": "[{{statusCode}}] {{body.error || body.message || 'Agify request failed'}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.qs.apikey"
+    ]
+  }
+}

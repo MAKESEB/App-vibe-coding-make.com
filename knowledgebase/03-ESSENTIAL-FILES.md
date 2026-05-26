@@ -257,17 +257,19 @@ Every app needs at least one module to provide functionality.
 
 The app icon must be:
 - **Format**: PNG
-- **Size**: 64x64 pixels
+- **Size**: 512x512 pixels for remote SDK icon upload
 - **Location**: `assets/icon.png`
 - **Design**: Clear, simple, recognizable
 - **Colors**: Match your brand/service
+
+See `knowledgebase/26-APP-ICON-LOGO-UPLOAD-WORKFLOW.md` for logo.dev fetching and the official VS Code Apps SDK icon upload endpoint.
 
 ## File Validation Checklist
 
 ### Required Files
 - [ ] `base.imljson` exists and has valid JSON
 - [ ] `metadata.json` exists with required fields
-- [ ] `assets/icon.png` exists and is 64x64px
+- [ ] `assets/icon.png` exists and is a 512x512 PNG
 - [ ] At least one connection folder exists
 - [ ] At least one module folder exists
 

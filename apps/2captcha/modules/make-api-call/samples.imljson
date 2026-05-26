@@ -1,0 +1,10 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "errorId": 0,
+    "status": "ready"
+  }
+}

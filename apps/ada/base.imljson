@@ -1,0 +1,34 @@
+{
+  "baseUrl": "https://ada.im/api",
+  "headers": {
+    "Authorization": "{{connection.apiKey}}",
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "response": {
+    "error": {
+      "400": {
+        "message": "[400] Bad request. Check the Ada request body and parameters."
+      },
+      "401": {
+        "message": "[401] Authentication failed. Check your Ada API key."
+      },
+      "403": {
+        "message": "[403] Access denied by Ada. Check your Ada API key permissions and credits."
+      },
+      "404": {
+        "message": "[404] Ada API endpoint or resource not found."
+      },
+      "429": {
+        "type": "RateLimitError",
+        "message": "[429] Ada rate limit or credit limit exceeded."
+      },
+      "message": "[{{statusCode}}] {{body.message || body.error.message || body.error || 'Ada request failed'}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization"
+    ]
+  }
+}

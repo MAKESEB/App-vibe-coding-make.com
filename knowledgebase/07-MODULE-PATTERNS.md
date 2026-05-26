@@ -12,6 +12,14 @@ Modules are the core functionality units of Make apps. They define what actions 
 4. **Polling Trigger** - Periodic data checking
 5. **Responder** - Handle webhook responses
 
+## Required Universal Module and Production Completeness
+
+Generated apps should include a universal **Make an API Call** module (`typeId: 12`) as a mandatory fallback. It lets users call newly added or low-priority endpoints that were not mapped into first-class modules yet.
+
+That fallback is not enough for a production-ready app. A production-ready app must also include specific modules generated from real API endpoints: searches for list endpoints, actions for read/create/update/delete/status endpoints, and triggers/webhooks where supported. Universal-only apps must be explicitly labeled as minimal shell/scaffold apps in their README or generation report.
+
+Generator rule: never treat `modules/make-api-call` as the endpoint matrix. Build or extract the real endpoint matrix first, then emit specific module folders for the mapped endpoints.
+
 ## Action Modules
 
 Actions perform operations on the target service.

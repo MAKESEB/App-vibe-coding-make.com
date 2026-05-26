@@ -107,6 +107,21 @@ These issues affect ALL Make.com app development and have established workaround
 
 ## 📦 Module Configuration Rules
 
+### Universal API Call Is Required but Not Enough
+
+Every generated Make custom app should include a universal **Make an API Call** module with `typeId: 12` unless a task explicitly forbids it. This module is required as an escape hatch and coverage fallback.
+
+However, a universal-only app is not production-ready by itself. A generator may stop at universal-only only when it explicitly marks the result as a `minimal-shell-scaffold` in the app README or batch report.
+
+For a production-ready app, the generator must also emit service-specific modules from a real endpoint matrix:
+
+- list/search endpoints -> search modules, usually `typeId: 9`
+- read-one endpoints -> action modules, usually `typeId: 4`
+- create/update/delete/status endpoints -> action modules, usually `typeId: 4`
+- webhook/polling endpoints -> triggers where the API supports them
+
+Do not describe a generated app as production-ready if `modules/make-api-call` is the only functional module.
+
 ### Universal "Make an API Call" Module (CRITICAL)
 
 **Best Practice:** The universal "Make an API Call" module must repeat the root URL in its configuration.

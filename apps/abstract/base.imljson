@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://emailvalidation.abstractapi.com",
+  "headers": {
+    "Accept": "application/json"
+  },
+  "response": {
+    "error": {
+      "401": {
+        "message": "[401] Authentication failed. Check your Abstract credentials."
+      },
+      "403": {
+        "message": "[403] Access denied. Check your Abstract permissions."
+      },
+      "404": {
+        "message": "[404] Resource not found."
+      },
+      "message": "[{{statusCode}}] {{body.error.message || body.message || body.error || 'Request failed'}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization",
+      "request.headers.key",
+      "request.body.clientKey",
+      "request.qs.api_key"
+    ]
+  }
+}

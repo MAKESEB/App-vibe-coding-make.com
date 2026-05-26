@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Id",
+    "type": "number",
+    "label": "Fund ID",
+    "required": true
+  },
+  {
+    "name": "IdAdmin",
+    "type": "number",
+    "label": "Admin User ID",
+    "required": true
+  },
+  {
+    "name": "DepositAmount",
+    "type": "number",
+    "label": "Deposit Amount",
+    "required": true
+  }
+]

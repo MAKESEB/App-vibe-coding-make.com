@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Id",
+    "type": "number",
+    "label": "Fund ID",
+    "required": true
+  },
+  {
+    "name": "IdAdmin",
+    "type": "number",
+    "label": "Admin User ID",
+    "required": true
+  },
+  {
+    "name": "FundName",
+    "type": "text",
+    "label": "Fund Name",
+    "required": true
+  },
+  {
+    "name": "FundCode",
+    "type": "text",
+    "label": "Fund Code"
+  },
+  {
+    "name": "FundComment",
+    "type": "text",
+    "label": "Fund Comment"
+  },
+  {
+    "name": "FundFlexibility",
+    "type": "boolean",
+    "label": "Fund Flexibility"
+  },
+  {
+    "name": "FundAutoDeposit",
+    "type": "boolean",
+    "label": "Fund Auto Deposit"
+  },
+  {
+    "name": "FundAutoBlock",
+    "type": "boolean",
+    "label": "Fund Auto Block"
+  },
+  {
+    "name": "FundExpirationDate",
+    "type": "date",
+    "label": "Fund Expiration Date"
+  }
+]

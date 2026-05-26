@@ -1,0 +1,9 @@
+[
+  {
+    "name": "apiKey",
+    "type": "password",
+    "label": "Abstract API Key",
+    "required": true,
+    "help": "Paste an Abstract API key. This generated app targets the documented Email Validation API base URL."
+  }
+]
