@@ -1,0 +1,51 @@
+[
+  {
+    "name": "body",
+    "type": "buffer",
+    "label": "Image Data",
+    "required": true,
+    "help": "Captcha image data. Make passes the binary value to 2Captcha as base64."
+  },
+  {
+    "name": "phrase",
+    "type": "text",
+    "label": "Phrase",
+    "help": "Set to 1 when the captcha must contain at least one space."
+  },
+  {
+    "name": "case",
+    "type": "text",
+    "label": "Case Sensitive",
+    "help": "Set to 1 when the captcha answer is case-sensitive."
+  },
+  {
+    "name": "numeric",
+    "type": "text",
+    "label": "Numeric Mode",
+    "help": "2Captcha numeric mode value, for example 0, 1, 2, 3, or 4."
+  },
+  {
+    "name": "math",
+    "type": "text",
+    "label": "Math",
+    "help": "Set to 1 when the captcha requires a calculation."
+  },
+  {
+    "name": "minLength",
+    "type": "text",
+    "label": "Minimum Length",
+    "help": "Optional minimum answer length."
+  },
+  {
+    "name": "maxLength",
+    "type": "text",
+    "label": "Maximum Length",
+    "help": "Optional maximum answer length."
+  },
+  {
+    "name": "comment",
+    "type": "text",
+    "label": "Comment",
+    "help": "Optional instruction shown to workers."
+  }
+]

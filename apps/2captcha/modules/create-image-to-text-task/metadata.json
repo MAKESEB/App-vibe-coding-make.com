@@ -1,0 +1,8 @@
+{
+  "name": "createImageToTextTask",
+  "label": "Create Image to Text Task",
+  "description": "Create a normal image captcha solving task from a base64-encoded image body.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

@@ -1,0 +1,8 @@
+{
+  "name": "reportIncorrect",
+  "label": "Report Incorrect",
+  "description": "Report an incorrectly solved task to 2Captcha.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

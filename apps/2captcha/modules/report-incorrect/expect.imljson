@@ -1,0 +1,9 @@
+[
+  {
+    "name": "taskId",
+    "type": "uinteger",
+    "label": "Task ID",
+    "required": true,
+    "help": "Task ID to report as incorrect."
+  }
+]
