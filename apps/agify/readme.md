@@ -1,18 +1,22 @@
 # Agify Make Custom App
 
-Agify predicts a person's likely age from a first name. This local Make custom app targets the public Agify HTTP API documented at <https://agify.io/>.
+This generated app provides a production-oriented Make custom app for the Agify API. It keeps the mandatory universal **Make an API Call** fallback and adds a first-class module for the documented age prediction endpoint.
 
-## API details
+## API documentation
 
+- Docs: https://agify.io/
 - Base URL: `https://api.agify.io`
-- Authentication: Agify API key sent as the `apikey` query parameter
-- Connection validation: `GET https://api.agify.io?name=make&apikey=<api-key>`
+- Authentication: Agify API key sent as the `apikey` query parameter by the app base configuration.
 
-## Modules
+## Included modules
 
-- **Make an API Call**: sends a custom request to the Agify API. Use `/` as the path and add query string parameters such as `name` and `country_id`.
+- **Predict Age** (`predictAge`) calls `GET /` with `name` and optional `country_id`.
+- **Make an API Call** (`makeAnApiCall`) remains available as the required universal fallback.
+
+## Generator classification
+
+Classification: `production-ready`. The Agify product exposes a single documented prediction endpoint for this app, and that endpoint is included as a first-class module plus the required universal fallback.
 
 ## Notes
 
-- The API key is stored in a password field and sanitized from request query logs.
-- No remote upload has been performed for this batch.
+The API key is stored in a password field and sanitized from request query logs. Do not add `apikey` manually in module query parameters unless intentionally overriding the connection.
