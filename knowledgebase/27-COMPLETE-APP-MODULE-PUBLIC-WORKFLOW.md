@@ -128,6 +128,39 @@ Pass criteria:
 
 Only claim live third-party API functionality if provider credentials were actually used. Upload/readback proves Make SDK object state, not provider execution.
 
-## 6. Secret handling
+## 6. n8n-source full app factory
+
+Use the Hermes/Codex factory script to derive one full Make app from one exact n8n package source:
+
+```bash
+scripts/n8n-full-app-codex-factory.sh <app-slug> <npm-package> [package-version]
+```
+
+The script does the repeatable outer orchestration:
+
+1. prefetches the exact NPM package into `tmp/n8n-source/<app-slug>`
+2. writes a strict Codex prompt to `generated/n8n-full-app-prompts/<app-slug>.md`
+3. runs Codex with an isolated no-MCP profile by default (`CODEX_HOME=~/.codex-n8n-make-worker`)
+4. requires Codex to inspect package source and generate `apps/<app-slug>/` plus `scripts/<app-slug>/generate-<app-slug>-app.mjs`
+5. validates generator syntax, generated JSON/IML, icon dimensions, placeholder scan, and module guard
+6. optionally uploads, uploads/verifies icons, marks the app and every module public, and reads back public flags
+
+Examples:
+
+```bash
+# Generate and validate local files only
+RUN_UPLOAD=0 scripts/n8n-full-app-codex-factory.sh activitysmith n8n-nodes-activitysmith 1.0.5
+
+# Generate, upload, and make app/modules public
+RUN_UPLOAD=1 MAKE_PUBLIC=1 scripts/n8n-full-app-codex-factory.sh ada n8n-nodes-ada 0.1.6
+
+# Create a stacked branch/PR against the scaffold branch
+CREATE_BRANCH=1 CREATE_PR=1 RUN_UPLOAD=0 \
+  scripts/n8n-full-app-codex-factory.sh myapp n8n-nodes-myapp 1.2.3
+```
+
+Codex must not invent endpoints. The exact package source is the primary source of truth: credentials, validation request, base URL, generic request helper, node routing, resource descriptions, and request builders. If these facts are missing, write a blocked report instead of generating a fake app.
+
+## 7. Secret handling
 
 Never print or commit API keys. For raw curl fallbacks, write `Authorization: Token ...` to a restrictive temporary curl config file and delete it immediately after use.
