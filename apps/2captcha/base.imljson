@@ -1,0 +1,29 @@
+{
+  "baseUrl": "https://api.2captcha.com",
+  "headers": {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "response": {
+    "error": {
+      "401": {
+        "message": "[401] Authentication failed. Check your 2Captcha credentials."
+      },
+      "403": {
+        "message": "[403] Access denied. Check your 2Captcha permissions."
+      },
+      "404": {
+        "message": "[404] Resource not found."
+      },
+      "message": "[{{statusCode}}] {{body.error.message || body.message || body.error || 'Request failed'}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization",
+      "request.headers.key",
+      "request.body.clientKey",
+      "request.qs.api_key"
+    ]
+  }
+}

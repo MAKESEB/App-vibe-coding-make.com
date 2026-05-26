@@ -1,0 +1,9 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "id": "current-user"
+  }
+}

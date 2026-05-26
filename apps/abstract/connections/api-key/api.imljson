@@ -1,0 +1,18 @@
+{
+  "url": "https://emailvalidation.abstractapi.com/v1/",
+  "method": "GET",
+  "headers": {
+    "Accept": "application/json"
+  },
+  "qs": {
+    "api_key": "{{connection.apiKey}}",
+    "email": "support@abstractapi.com"
+  },
+  "response": {
+    "uid": "{{connection.apiKey}}",
+    "metadata": {
+      "type": "text",
+      "value": "Abstract API Key"
+    }
+  }
+}

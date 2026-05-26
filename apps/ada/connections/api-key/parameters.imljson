@@ -1,0 +1,9 @@
+[
+  {
+    "name": "apiKey",
+    "type": "password",
+    "label": "Ada API Key",
+    "required": true,
+    "help": "Create an API key in the Ada API management dashboard at https://ada.im. The n8n package sends this value directly in the Authorization header."
+  }
+]

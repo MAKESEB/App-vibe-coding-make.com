@@ -1,0 +1,12 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "data": {
+      "ipAddress": "127.0.0.1",
+      "abuseConfidenceScore": 0
+    }
+  }
+}
