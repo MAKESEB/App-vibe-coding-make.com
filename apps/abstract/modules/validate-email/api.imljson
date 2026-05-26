@@ -1,0 +1,11 @@
+{
+  "url": "/v1/",
+  "method": "GET",
+  "qs": {
+    "api_key": "{{connection.apiKey}}",
+    "email": "{{parameters.email}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}
