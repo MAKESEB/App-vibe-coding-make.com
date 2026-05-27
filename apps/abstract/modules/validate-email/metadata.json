@@ -1,0 +1,8 @@
+{
+  "name": "validateEmail",
+  "label": "Validate Email",
+  "description": "Validate an email address with Abstract Email Validation API.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

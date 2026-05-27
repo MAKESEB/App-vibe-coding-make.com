@@ -1,0 +1,57 @@
+[
+  {
+    "name": "email",
+    "type": "email",
+    "label": "Email"
+  },
+  {
+    "name": "autocorrect",
+    "type": "email",
+    "label": "Autocorrect"
+  },
+  {
+    "name": "deliverability",
+    "type": "text",
+    "label": "Deliverability"
+  },
+  {
+    "name": "quality_score",
+    "type": "number",
+    "label": "Quality Score"
+  },
+  {
+    "name": "is_valid_format",
+    "type": "collection",
+    "label": "Is Valid Format"
+  },
+  {
+    "name": "is_free_email",
+    "type": "collection",
+    "label": "Is Free Email"
+  },
+  {
+    "name": "is_disposable_email",
+    "type": "collection",
+    "label": "Is Disposable Email"
+  },
+  {
+    "name": "is_role_email",
+    "type": "collection",
+    "label": "Is Role Email"
+  },
+  {
+    "name": "is_catchall_email",
+    "type": "collection",
+    "label": "Is Catch-All Email"
+  },
+  {
+    "name": "is_mx_found",
+    "type": "collection",
+    "label": "Is MX Found"
+  },
+  {
+    "name": "is_smtp_valid",
+    "type": "collection",
+    "label": "Is SMTP Valid"
+  }
+]
