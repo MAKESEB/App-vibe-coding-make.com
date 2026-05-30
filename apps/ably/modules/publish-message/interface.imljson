@@ -1,0 +1,42 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "ID"
+  },
+  {
+    "name": "name",
+    "type": "text",
+    "label": "Event Name"
+  },
+  {
+    "name": "data",
+    "type": "any",
+    "label": "Data"
+  },
+  {
+    "name": "clientId",
+    "type": "text",
+    "label": "Client ID"
+  },
+  {
+    "name": "connectionId",
+    "type": "text",
+    "label": "Connection ID"
+  },
+  {
+    "name": "encoding",
+    "type": "text",
+    "label": "Encoding"
+  },
+  {
+    "name": "extras",
+    "type": "collection",
+    "label": "Extras"
+  },
+  {
+    "name": "timestamp",
+    "type": "date",
+    "label": "Timestamp"
+  }
+]

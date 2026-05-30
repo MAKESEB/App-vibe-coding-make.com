@@ -1,0 +1,16 @@
+{
+  "url": "/stats",
+  "method": "GET",
+  "qs": {
+    "unit": "{{ifempty(parameters.unit, 'minute')}}",
+    "direction": "{{ifempty(parameters.direction, 'backwards')}}",
+    "start": "{{ifempty(parameters.start, undefined)}}",
+    "end": "{{ifempty(parameters.end, undefined)}}",
+    "limit": "{{if(parameters.limit < 1000, parameters.limit, 1000)}}"
+  },
+  "response": {
+    "iterate": "{{body}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

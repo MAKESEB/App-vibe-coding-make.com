@@ -1,0 +1,13 @@
+{
+  "url": "/channels/{{parameters.channelName}}/messages",
+  "method": "POST",
+  "body": {
+    "name": "{{ifempty(parameters.name, undefined)}}",
+    "data": "{{parameters.data}}",
+    "clientId": "{{ifempty(parameters.clientId, undefined)}}",
+    "extras": "{{if(parameters.extras != null, parameters.extras, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "channelName": "orders",
+  "direction": "backwards",
+  "limit": 25
+}

@@ -1,0 +1,7 @@
+[
+  {
+    "name": "timestamp",
+    "type": "date",
+    "label": "Timestamp"
+  }
+]
