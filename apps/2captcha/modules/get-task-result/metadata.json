@@ -1,0 +1,8 @@
+{
+  "name": "getTaskResult",
+  "label": "Get Task Result",
+  "description": "Get the status and solution for a 2Captcha task.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

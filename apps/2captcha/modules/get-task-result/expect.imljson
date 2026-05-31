@@ -1,0 +1,9 @@
+[
+  {
+    "name": "taskId",
+    "type": "uinteger",
+    "label": "Task ID",
+    "required": true,
+    "help": "Task ID returned by a create task module."
+  }
+]

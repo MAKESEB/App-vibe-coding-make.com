@@ -1,0 +1,8 @@
+{
+  "name": "createRecaptchaV2Task",
+  "label": "Create reCAPTCHA v2 Task",
+  "description": "Create a proxyless reCAPTCHA v2 solving task with 2Captcha.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

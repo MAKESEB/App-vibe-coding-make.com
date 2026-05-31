@@ -1,0 +1,60 @@
+[
+  {
+    "name": "websiteURL",
+    "type": "text",
+    "label": "Website URL",
+    "required": true,
+    "help": "Full URL of the page where the captcha is displayed."
+  },
+  {
+    "name": "websiteKey",
+    "type": "text",
+    "label": "Website Key",
+    "required": true,
+    "help": "The reCAPTCHA sitekey from the target page."
+  },
+  {
+    "name": "isInvisible",
+    "type": "boolean",
+    "label": "Invisible reCAPTCHA",
+    "help": "Enable when the target captcha is an invisible reCAPTCHA v2 widget."
+  },
+  {
+    "name": "recaptchaDataSValue",
+    "type": "text",
+    "label": "Data-S Value",
+    "help": "Optional data-s value for Google services."
+  },
+  {
+    "name": "apiDomain",
+    "type": "text",
+    "label": "API Domain",
+    "help": "Optional reCAPTCHA API domain, for example google.com or recaptcha.net."
+  },
+  {
+    "name": "languagePool",
+    "type": "select",
+    "label": "Language Pool",
+    "options": [
+      {
+        "label": "Default",
+        "value": ""
+      },
+      {
+        "label": "English",
+        "value": "en"
+      },
+      {
+        "label": "Russian",
+        "value": "rn"
+      }
+    ],
+    "help": "Optional 2Captcha worker language pool."
+  },
+  {
+    "name": "softId",
+    "type": "uinteger",
+    "label": "Software ID",
+    "help": "Optional software ID registered in the 2Captcha software catalog."
+  }
+]

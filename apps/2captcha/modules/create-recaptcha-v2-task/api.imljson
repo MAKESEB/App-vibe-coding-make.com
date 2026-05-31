@@ -1,0 +1,20 @@
+{
+  "url": "/createTask",
+  "method": "POST",
+  "body": {
+    "clientKey": "{{connection.apiKey}}",
+    "task": {
+      "type": "RecaptchaV2TaskProxyless",
+      "websiteURL": "{{parameters.websiteURL}}",
+      "websiteKey": "{{parameters.websiteKey}}",
+      "isInvisible": "{{if(parameters.isInvisible != null, parameters.isInvisible, undefined)}}",
+      "recaptchaDataSValue": "{{ifempty(parameters.recaptchaDataSValue, undefined)}}",
+      "apiDomain": "{{ifempty(parameters.apiDomain, undefined)}}"
+    },
+    "languagePool": "{{ifempty(parameters.languagePool, undefined)}}",
+    "softId": "{{if(parameters.softId != null, parameters.softId, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}
