@@ -1,0 +1,8 @@
+{
+  "name": "updateLiveActivityStream",
+  "label": "Update Live Activity Stream",
+  "description": "Update a live activity stream by stream key.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

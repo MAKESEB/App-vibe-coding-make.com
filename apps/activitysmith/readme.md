@@ -1,22 +1,27 @@
-# ActivitySmith
+# ActivitySmith Make Custom App
 
-ActivitySmith lets automations send push notifications and manage iOS Live Activities for paired devices.
+This generated app provides a production-oriented Make custom app for ActivitySmith. It keeps the mandatory universal **Make an API Call** fallback and adds first-class modules from the endpoint matrix found in the extracted n8n package source.
 
-This Make custom app is based on the locally extracted `n8n-nodes-activitysmith` 1.0.5 package. The n8n package defines the ActivitySmith API base URL as `https://activitysmith.com/api`, authenticates with `Authorization: Bearer <apiKey>`, and verifies credentials by sending a `POST /push-notification` request.
+## Source details
 
-## Authentication
+- n8n source package: `n8n-nodes-activitysmith@1.0.5`
+- Base URL: `https://activitysmith.com/api`
+- Authentication: `Authorization: Bearer <api key>` header populated from the connection API key.
 
-Create an API key in ActivitySmith at `https://activitysmith.com/app/keys`, then paste it into the API Key connection. The key is sent as a Bearer token and is sanitized from logs.
+## Included modules
 
-## Supported API areas
+- **Send Push Notification** (`sendPushNotification`) calls `POST /push-notification`.
+- **Start Live Activity** (`startLiveActivity`) calls `POST /live-activity/start`.
+- **Update Live Activity** (`updateLiveActivity`) calls `POST /live-activity/update`.
+- **End Live Activity** (`endLiveActivity`) calls `POST /live-activity/end`.
+- **Update Live Activity Stream** (`updateLiveActivityStream`) calls `PUT /live-activity/stream/{streamKey}`.
+- **Delete Live Activity Stream** (`deleteLiveActivityStream`) calls `DELETE /live-activity/stream/{streamKey}`.
+- **Make an API Call** (`makeAnApiCall`) remains available as the required universal fallback.
 
-Use **Make an API Call** with ActivitySmith API paths such as:
+## Generator classification
 
-- `POST /push-notification`
-- `POST /live-activity/start`
-- `POST /live-activity/update`
-- `POST /live-activity/end`
-- `PUT /live-activity/stream/{streamKey}`
-- `DELETE /live-activity/stream/{streamKey}`
+Classification: `production-ready`. This app is not universal-only; it includes endpoint-specific modules generated from the ActivitySmith endpoint matrix above.
 
-The module accepts relative paths under `https://activitysmith.com/api` and returns the status code, response headers, and response body.
+## Notes
+
+Do not add an `Authorization` header in module inputs; the app sends the Bearer token from the connection. Complex ActivitySmith payloads are exposed as collections so provider-specific JSON can be passed without reverting to a universal-only app.

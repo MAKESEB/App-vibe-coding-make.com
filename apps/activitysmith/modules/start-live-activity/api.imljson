@@ -1,0 +1,14 @@
+{
+  "url": "/live-activity/start",
+  "method": "POST",
+  "body": {
+    "activityType": "{{parameters.activityType}}",
+    "attributes": "{{if(parameters.attributes != null, parameters.attributes, undefined)}}",
+    "contentState": "{{parameters.contentState}}",
+    "pushToken": "{{ifempty(parameters.pushToken, undefined)}}",
+    "data": "{{if(parameters.data != null, parameters.data, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

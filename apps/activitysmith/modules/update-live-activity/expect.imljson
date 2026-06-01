@@ -1,0 +1,26 @@
+[
+  {
+    "name": "activityId",
+    "type": "text",
+    "label": "Activity ID",
+    "required": true,
+    "help": "Live Activity ID returned by the start endpoint."
+  },
+  {
+    "name": "contentState",
+    "type": "collection",
+    "label": "Content State",
+    "required": true,
+    "help": "Updated Live Activity content state."
+  },
+  {
+    "name": "alertTitle",
+    "type": "text",
+    "label": "Alert Title"
+  },
+  {
+    "name": "alertBody",
+    "type": "text",
+    "label": "Alert Body"
+  }
+]

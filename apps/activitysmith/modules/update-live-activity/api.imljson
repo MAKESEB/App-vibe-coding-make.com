@@ -1,0 +1,13 @@
+{
+  "url": "/live-activity/update",
+  "method": "POST",
+  "body": {
+    "activityId": "{{parameters.activityId}}",
+    "contentState": "{{parameters.contentState}}",
+    "alertTitle": "{{ifempty(parameters.alertTitle, undefined)}}",
+    "alertBody": "{{ifempty(parameters.alertBody, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

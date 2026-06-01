@@ -1,0 +1,9 @@
+[
+  {
+    "name": "streamKey",
+    "type": "text",
+    "label": "Stream Key",
+    "required": true,
+    "help": "ActivitySmith stream key."
+  }
+]

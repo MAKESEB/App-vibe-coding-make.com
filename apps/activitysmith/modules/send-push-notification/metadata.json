@@ -1,0 +1,8 @@
+{
+  "name": "sendPushNotification",
+  "label": "Send Push Notification",
+  "description": "Send an ActivitySmith push notification.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

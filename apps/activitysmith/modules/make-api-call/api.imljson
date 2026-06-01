@@ -1,5 +1,5 @@
 {
-  "url": "{{parameters.url}}",
+  "url": "https://activitysmith.com/api{{parameters.url}}",
   "method": "{{parameters.method}}",
   "headers": {
     "{{...}}": "{{toCollection(parameters.headers, 'key', 'value')}}"

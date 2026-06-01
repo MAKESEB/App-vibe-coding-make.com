@@ -1,0 +1,7 @@
+{
+  "url": "/live-activity/stream/{{parameters.streamKey}}",
+  "method": "DELETE",
+  "response": {
+    "output": "{{body}}"
+  }
+}

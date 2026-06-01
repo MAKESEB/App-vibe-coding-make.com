@@ -1,0 +1,21 @@
+[
+  {
+    "name": "activityId",
+    "type": "text",
+    "label": "Activity ID",
+    "required": true,
+    "help": "Live Activity ID to end."
+  },
+  {
+    "name": "finalContentState",
+    "type": "collection",
+    "label": "Final Content State",
+    "help": "Optional final content state."
+  },
+  {
+    "name": "dismissImmediately",
+    "type": "boolean",
+    "label": "Dismiss Immediately",
+    "help": "Request immediate dismissal when supported."
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "url": "/live-activity/stream/{{parameters.streamKey}}",
+  "method": "PUT",
+  "body": {
+    "contentState": "{{parameters.contentState}}",
+    "data": "{{if(parameters.data != null, parameters.data, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

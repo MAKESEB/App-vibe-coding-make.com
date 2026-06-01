@@ -1,0 +1,34 @@
+[
+  {
+    "name": "title",
+    "type": "text",
+    "label": "Title",
+    "required": true,
+    "help": "Notification title."
+  },
+  {
+    "name": "message",
+    "type": "text",
+    "label": "Message",
+    "required": true,
+    "help": "Notification body/message."
+  },
+  {
+    "name": "data",
+    "type": "collection",
+    "label": "Data",
+    "help": "Optional custom JSON payload."
+  },
+  {
+    "name": "url",
+    "type": "text",
+    "label": "URL",
+    "help": "Optional URL to open from the notification."
+  },
+  {
+    "name": "sound",
+    "type": "boolean",
+    "label": "Sound",
+    "help": "Play notification sound when supported."
+  }
+]

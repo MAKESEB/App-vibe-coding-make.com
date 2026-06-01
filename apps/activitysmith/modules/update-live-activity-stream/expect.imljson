@@ -1,0 +1,22 @@
+[
+  {
+    "name": "streamKey",
+    "type": "text",
+    "label": "Stream Key",
+    "required": true,
+    "help": "ActivitySmith stream key."
+  },
+  {
+    "name": "contentState",
+    "type": "collection",
+    "label": "Content State",
+    "required": true,
+    "help": "Updated stream content state."
+  },
+  {
+    "name": "data",
+    "type": "collection",
+    "label": "Data",
+    "help": "Optional custom JSON payload."
+  }
+]
