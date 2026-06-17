@@ -1,5 +1,5 @@
 {
-  "url": "{{parameters.url}}",
+  "url": "https://app.accuranker.com/api/v4{{parameters.url}}",
   "method": "{{parameters.method}}",
   "headers": {
     "{{...}}": "{{toCollection(parameters.headers, 'key', 'value')}}"

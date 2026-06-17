@@ -1,0 +1,7 @@
+{
+  "url": "/domain/{{parameters.domainId}}",
+  "method": "DELETE",
+  "response": {
+    "output": "{{body}}"
+  }
+}

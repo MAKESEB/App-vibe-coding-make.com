@@ -1,0 +1,8 @@
+{
+  "name": "searchGroupDomains",
+  "label": "Search Group Domains",
+  "description": "List AccuRanker groups and their domains.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}

@@ -1,0 +1,12 @@
+{
+  "url": "/overview/keywords_for_domain/{{parameters.domainId}}",
+  "method": "GET",
+  "qs": {
+    "keyword_contains": "{{ifempty(parameters.keywordContains, undefined)}}"
+  },
+  "response": {
+    "iterate": "{{body.keywords || body}}",
+    "output": "{{item}}",
+    "limit": "{{parameters.limit}}"
+  }
+}

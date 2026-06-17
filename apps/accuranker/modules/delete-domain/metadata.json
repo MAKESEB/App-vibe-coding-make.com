@@ -1,0 +1,8 @@
+{
+  "name": "deleteDomain",
+  "label": "Delete Domain",
+  "description": "Delete an AccuRanker domain.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

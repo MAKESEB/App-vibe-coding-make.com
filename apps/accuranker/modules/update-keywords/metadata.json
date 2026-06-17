@@ -1,0 +1,8 @@
+{
+  "name": "updateKeywords",
+  "label": "Update Keywords",
+  "description": "Update settings for one or more AccuRanker keywords.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

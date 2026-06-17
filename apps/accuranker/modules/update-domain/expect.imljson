@@ -1,0 +1,42 @@
+[
+  {
+    "name": "domainId",
+    "type": "uinteger",
+    "label": "Domain ID",
+    "required": true,
+    "help": "Domain ID to update."
+  },
+  {
+    "name": "domain",
+    "type": "text",
+    "label": "Domain",
+    "help": "Updated domain name."
+  },
+  {
+    "name": "groupId",
+    "type": "uinteger",
+    "label": "Group ID",
+    "help": "Updated group ID."
+  },
+  {
+    "name": "displayName",
+    "type": "text",
+    "label": "Display Name"
+  },
+  {
+    "name": "includeSubdomains",
+    "type": "boolean",
+    "label": "Include Subdomains"
+  },
+  {
+    "name": "exactMatch",
+    "type": "boolean",
+    "label": "Exact Match"
+  },
+  {
+    "name": "extraFields",
+    "type": "collection",
+    "label": "Extra Fields",
+    "help": "Optional advanced fields from the AccuRanker DomainSchemaUpdateValidated schema."
+  }
+]

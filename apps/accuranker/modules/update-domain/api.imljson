@@ -1,0 +1,15 @@
+{
+  "url": "/domain/{{parameters.domainId}}",
+  "method": "PUT",
+  "body": {
+    "domain": "{{ifempty(parameters.domain, undefined)}}",
+    "group_id": "{{if(parameters.groupId != null, parameters.groupId, undefined)}}",
+    "display_name": "{{ifempty(parameters.displayName, undefined)}}",
+    "include_subdomains": "{{if(parameters.includeSubdomains != null, parameters.includeSubdomains, undefined)}}",
+    "exact_match": "{{if(parameters.exactMatch != null, parameters.exactMatch, undefined)}}",
+    "{{...}}": "{{parameters.extraFields}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

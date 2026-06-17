@@ -1,0 +1,15 @@
+{
+  "url": "/brand/{{parameters.brandId}}",
+  "method": "PUT",
+  "body": {
+    "domain": "{{ifempty(parameters.domain, undefined)}}",
+    "group_id": "{{if(parameters.groupId != null, parameters.groupId, undefined)}}",
+    "display_name": "{{ifempty(parameters.displayName, undefined)}}",
+    "brand_list": "{{if(parameters.brandList != null, parameters.brandList, undefined)}}",
+    "exact_match": "{{if(parameters.exactMatch != null, parameters.exactMatch, undefined)}}",
+    "default_countrylocale": "{{ifempty(parameters.defaultCountrylocale, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

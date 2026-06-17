@@ -1,0 +1,66 @@
+[
+  {
+    "name": "domainId",
+    "type": "uinteger",
+    "label": "Domain ID",
+    "required": true,
+    "help": "Domain ID."
+  },
+  {
+    "name": "keywords",
+    "type": "array",
+    "label": "Keywords",
+    "required": true,
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    },
+    "help": "Keywords to create."
+  },
+  {
+    "name": "tags",
+    "type": "array",
+    "label": "Tags",
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    },
+    "help": "Optional keyword tags."
+  },
+  {
+    "name": "description",
+    "type": "text",
+    "label": "Description"
+  },
+  {
+    "name": "starred",
+    "type": "boolean",
+    "label": "Starred"
+  },
+  {
+    "name": "ignoreLocalResults",
+    "type": "boolean",
+    "label": "Ignore Local Results"
+  },
+  {
+    "name": "ignoreFeaturedSnippet",
+    "type": "boolean",
+    "label": "Ignore Featured Snippet"
+  },
+  {
+    "name": "ignoreInShareOfVoice",
+    "type": "boolean",
+    "label": "Ignore in Share of Voice"
+  },
+  {
+    "name": "enableAutocorrect",
+    "type": "boolean",
+    "label": "Enable Autocorrect"
+  },
+  {
+    "name": "searchsettings",
+    "type": "collection",
+    "label": "Search Settings",
+    "help": "Optional SearchSettings object from the API schema."
+  }
+]

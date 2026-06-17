@@ -1,0 +1,8 @@
+{
+  "name": "createGroup",
+  "label": "Create Group",
+  "description": "Create an AccuRanker group.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "domain",
+    "type": "text",
+    "label": "Domain",
+    "required": true,
+    "help": "Brand domain."
+  },
+  {
+    "name": "groupId",
+    "type": "uinteger",
+    "label": "Group ID",
+    "required": true,
+    "help": "Group ID."
+  },
+  {
+    "name": "displayName",
+    "type": "text",
+    "label": "Display Name"
+  },
+  {
+    "name": "brandList",
+    "type": "array",
+    "label": "Brand List",
+    "required": true,
+    "spec": {
+      "type": "text",
+      "label": "Value"
+    },
+    "help": "Brand names."
+  },
+  {
+    "name": "exactMatch",
+    "type": "boolean",
+    "label": "Exact Match"
+  },
+  {
+    "name": "defaultCountrylocale",
+    "type": "text",
+    "label": "Default Country Locale",
+    "help": "AccuRanker country locale ID or name."
+  }
+]

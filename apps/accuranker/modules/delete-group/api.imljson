@@ -1,0 +1,7 @@
+{
+  "url": "/group/{{parameters.groupId}}",
+  "method": "DELETE",
+  "response": {
+    "output": "{{body}}"
+  }
+}

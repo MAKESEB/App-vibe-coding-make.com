@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "number",
+    "label": "ID"
+  },
+  {
+    "name": "domain",
+    "type": "text",
+    "label": "Domain"
+  },
+  {
+    "name": "display_name",
+    "type": "text",
+    "label": "Display Name"
+  },
+  {
+    "name": "group_id",
+    "type": "number",
+    "label": "Group ID"
+  },
+  {
+    "name": "include_subdomains",
+    "type": "boolean",
+    "label": "Include Subdomains"
+  },
+  {
+    "name": "exact_match",
+    "type": "boolean",
+    "label": "Exact Match"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "name": "groupId",
+    "type": "uinteger",
+    "label": "Group ID",
+    "required": true,
+    "help": "Group ID to delete."
+  }
+]

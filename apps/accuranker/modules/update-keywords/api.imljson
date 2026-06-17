@@ -1,0 +1,18 @@
+{
+  "url": "/keyword/",
+  "method": "PUT",
+  "body": {
+    "domain_id": "{{parameters.domainId}}",
+    "keyword_ids": "{{parameters.keywordIds}}",
+    "tags": "{{if(parameters.tags != null, parameters.tags, undefined)}}",
+    "description": "{{ifempty(parameters.description, undefined)}}",
+    "starred": "{{if(parameters.starred != null, parameters.starred, undefined)}}",
+    "ignore_local_results": "{{if(parameters.ignoreLocalResults != null, parameters.ignoreLocalResults, undefined)}}",
+    "ignore_featured_snippet": "{{if(parameters.ignoreFeaturedSnippet != null, parameters.ignoreFeaturedSnippet, undefined)}}",
+    "ignore_in_share_of_voice": "{{if(parameters.ignoreInShareOfVoice != null, parameters.ignoreInShareOfVoice, undefined)}}",
+    "enable_autocorrect": "{{if(parameters.enableAutocorrect != null, parameters.enableAutocorrect, undefined)}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

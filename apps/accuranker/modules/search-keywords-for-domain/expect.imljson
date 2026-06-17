@@ -1,0 +1,22 @@
+[
+  {
+    "name": "domainId",
+    "type": "uinteger",
+    "label": "Domain ID",
+    "required": true,
+    "help": "AccuRanker domain ID."
+  },
+  {
+    "name": "keywordContains",
+    "type": "text",
+    "label": "Keyword Contains",
+    "help": "Optional keyword text filter."
+  },
+  {
+    "name": "limit",
+    "type": "uinteger",
+    "label": "Limit",
+    "required": true,
+    "help": "Maximum keywords to return."
+  }
+]

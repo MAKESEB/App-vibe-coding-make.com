@@ -1,0 +1,21 @@
+[
+  {
+    "name": "groupId",
+    "type": "uinteger",
+    "label": "Group ID",
+    "required": true,
+    "help": "Group ID to update."
+  },
+  {
+    "name": "name",
+    "type": "text",
+    "label": "Name",
+    "help": "Updated group name."
+  },
+  {
+    "name": "accountId",
+    "type": "uinteger",
+    "label": "Account ID",
+    "help": "Updated account ID."
+  }
+]

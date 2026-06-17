@@ -1,0 +1,8 @@
+{
+  "name": "updateDomain",
+  "label": "Update Domain",
+  "description": "Update an AccuRanker domain.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

@@ -1,0 +1,8 @@
+{
+  "name": "searchKeywordsForDomain",
+  "label": "Search Keywords for Domain",
+  "description": "List keywords configured for an AccuRanker domain.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}
