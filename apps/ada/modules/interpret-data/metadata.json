@@ -1,0 +1,8 @@
+{
+  "name": "interpretData",
+  "label": "Interpret Data",
+  "description": "Ask Ada to interpret structured JSON data.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

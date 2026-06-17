@@ -1,0 +1,8 @@
+{
+  "name": "createEchartsVisualization",
+  "label": "Create ECharts Visualization",
+  "description": "Generate an ECharts visualization from JSON data and a natural-language prompt.",
+  "connection": "api-key",
+  "type": "action",
+  "typeId": 4
+}

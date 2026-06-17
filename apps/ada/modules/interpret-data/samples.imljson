@@ -1,0 +1,11 @@
+{
+  "inputJson": {
+    "users": [
+      {
+        "segment": "trial",
+        "count": 42
+      }
+    ]
+  },
+  "query": "What is the dominant user segment?"
+}

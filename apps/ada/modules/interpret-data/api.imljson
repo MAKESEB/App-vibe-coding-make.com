@@ -1,0 +1,11 @@
+{
+  "url": "/platform_api/DataInterpretation",
+  "method": "POST",
+  "body": {
+    "input_json": "{{parameters.inputJson}}",
+    "query": "{{parameters.query}}"
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

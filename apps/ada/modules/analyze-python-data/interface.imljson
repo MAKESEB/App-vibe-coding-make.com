@@ -1,0 +1,22 @@
+[
+  {
+    "name": "code",
+    "type": "number",
+    "label": "Code"
+  },
+  {
+    "name": "message",
+    "type": "text",
+    "label": "Message"
+  },
+  {
+    "name": "data",
+    "type": "collection",
+    "label": "Data"
+  },
+  {
+    "name": "result",
+    "type": "any",
+    "label": "Result"
+  }
+]
