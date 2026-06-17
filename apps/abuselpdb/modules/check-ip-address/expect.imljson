@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ipAddress",
+    "type": "text",
+    "label": "IP Address",
+    "required": true,
+    "help": "IPv4 or IPv6 address to check."
+  },
+  {
+    "name": "maxAgeInDays",
+    "type": "uinteger",
+    "label": "Max Age in Days",
+    "required": true,
+    "default": 90,
+    "help": "Only include reports within this age. AbuseIPDB supports 1-365."
+  },
+  {
+    "name": "verbose",
+    "type": "boolean",
+    "label": "Verbose",
+    "help": "Include reports in the response when supported by the API."
+  }
+]

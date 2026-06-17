@@ -1,5 +1,5 @@
 {
-  "url": "{{parameters.url}}",
+  "url": "https://api.abuseipdb.com/api/v2{{parameters.url}}",
   "method": "{{parameters.method}}",
   "headers": {
     "{{...}}": "{{toCollection(parameters.headers, 'key', 'value')}}"

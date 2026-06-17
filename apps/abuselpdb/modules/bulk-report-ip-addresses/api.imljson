@@ -1,0 +1,16 @@
+{
+  "url": "/bulk-report",
+  "method": "POST",
+  "type": "multipart/form-data",
+  "body": {
+    "csv": {
+      "value": "{{parameters.csv}}",
+      "options": {
+        "filename": "{{ifempty(parameters.filename, 'report.csv')}}"
+      }
+    }
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

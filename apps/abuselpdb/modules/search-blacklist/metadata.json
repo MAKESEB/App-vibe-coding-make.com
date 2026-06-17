@@ -1,0 +1,8 @@
+{
+  "name": "searchBlacklist",
+  "label": "Search Blacklist",
+  "description": "Retrieve the AbuseIPDB blacklist with a minimum confidence score.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}

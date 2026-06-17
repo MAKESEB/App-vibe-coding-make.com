@@ -1,0 +1,22 @@
+[
+  {
+    "name": "ip",
+    "type": "text",
+    "label": "IP Address",
+    "required": true,
+    "help": "IPv4 or IPv6 address to report."
+  },
+  {
+    "name": "categories",
+    "type": "text",
+    "label": "Categories",
+    "required": true,
+    "help": "Comma-separated AbuseIPDB category IDs."
+  },
+  {
+    "name": "comment",
+    "type": "text",
+    "label": "Comment",
+    "help": "Report comment/evidence."
+  }
+]

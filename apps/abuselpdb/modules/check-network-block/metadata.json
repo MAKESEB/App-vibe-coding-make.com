@@ -1,0 +1,8 @@
+{
+  "name": "checkNetworkBlock",
+  "label": "Check Network Block",
+  "description": "Check a CIDR network block against AbuseIPDB reports.",
+  "connection": "api-key",
+  "type": "search",
+  "typeId": 9
+}

@@ -1,0 +1,12 @@
+{
+  "url": "/check",
+  "method": "GET",
+  "qs": {
+    "ipAddress": "{{parameters.ipAddress}}",
+    "maxAgeInDays": "{{parameters.maxAgeInDays}}",
+    "verbose": "{{if(parameters.verbose, '', undefined)}}"
+  },
+  "response": {
+    "output": "{{body.data || body}}"
+  }
+}
